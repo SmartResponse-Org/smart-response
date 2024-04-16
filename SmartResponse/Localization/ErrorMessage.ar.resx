@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="1000" xml:space="preserve">
+    <value>العملية تمت بنجاح</value>
+  </data>
+  <data name="2000" xml:space="preserve">
+    <value>حصل خطأ فى السيرفر</value>
+  </data>
+  <data name="2001" xml:space="preserve">
+    <value>فشل في الحصول على الداتا</value>
+  </data>
+  <data name="4000" xml:space="preserve">
+    <value>فشل العمليه : لاتوجد صلاحية </value>
+  </data>
+  <data name="5000" xml:space="preserve">
+    <value>حصل خطأ ما</value>
+  </data>
+  <data name="6000" xml:space="preserve">
+    <value>فشل العملية : خطأ في البيانات المدخلة</value>
+  </data>
+  <data name="6001" xml:space="preserve">
+    <value>فشل العملية : {0} هذا الحقل مطلوب </value>
+  </data>
+  <data name="6002" xml:space="preserve">
+    <value>فشل العملية : {0} يجب ان تكون اكبر من 0 </value>
+  </data>
+  <data name="6003" xml:space="preserve">
+    <value>فشل العملية : خطأ في طول البيانات المدخلة</value>
+  </data>
+  <data name="6004" xml:space="preserve">
+    <value>فشل العملية : {2} يجب ان تكون  من {0}  الي{1}</value>
+  </data>
+  <data name="6005" xml:space="preserve">
+    <value>فشل العملية : {1} يجب ان تكون اكبر من {0}</value>
+  </data>
+  <data name="6006" xml:space="preserve">
+    <value>فشل العملية : {1} يجب ان تكون اقل من {0}</value>
+  </data>
+  <data name="6007" xml:space="preserve">
+    <value>فشل العملية : الايميل غير صحيح</value>
+  </data>
+  <data name="6008" xml:space="preserve">
+    <value>فشل العملية : العدد غير صحيح</value>
+  </data>
+  <data name="6009" xml:space="preserve">
+    <value>فشل العملية : اللوجو غير صحيح او غير موجود</value>
+  </data>
+  <data name="6010" xml:space="preserve">
+    <value>      فشل العملية : الـJson    غير صحيح </value>
+  </data>
+  <data name="6011" xml:space="preserve">
+    <value>فشل العملية :  لا يوجد بيانات العربية و الانجليزية في هذا الحقل</value>
+  </data>
+  <data name="6012" xml:space="preserve">
+    <value>فشل العملية :  فشل استرجاع بيانات العربية و الانجليزية في هذا الحقل</value>
+  </data>
+  <data name="6013" xml:space="preserve">
+    <value>فشل العملية :  لا يوجد بيانات الانجليزية في هذا الحقل</value>
+  </data>
+  <data name="6014" xml:space="preserve">
+    <value>فشل العملية :  لا يوجد بيانات العربية  في هذا الحقل</value>
+  </data>
+  <data name="6015" xml:space="preserve">
+    <value>فشل العملية : كلمة المرور يجب ان تحتوى رقم واحد على الاقل</value>
+  </data>
+  <data name="6016" xml:space="preserve">
+    <value>فشل العملية : كلمة المرور يجب ان تحتوى حرف  صغير واحد و حرف كبير واحد على الاقل</value>
+  </data>
+  <data name="6017" xml:space="preserve">
+    <value>فشل العملية : كلمة المرور يجب ان تحتوى رمز خاص واحد على الاقل</value>
+  </data>
+  <data name="6018" xml:space="preserve">
+    <value>فشل العملية : عنوان انترنت غير صحيح او غير امن</value>
+  </data>
+  <data name="6019" xml:space="preserve">
+    <value>فشل العملية : نوع الملف غير مدعوم</value>
+  </data>
+  <data name="6020" xml:space="preserve">
+    <value>Failed :Invalid File Content Type</value>
+  </data>
+  <data name="6021" xml:space="preserve">
+    <value>فشل العملية :يجب أن يكون حجم الملف 2 ميجابايت علي الأكثر</value>
+  </data>
+  <data name="6023" xml:space="preserve">
+    <value>فشل العملية : يجب اختيار واحد علي الأقل</value>
+  </data>
+  <data name="7000" xml:space="preserve">
+    <value>فشل العملية : بيانات تشغيل غير صحيحة</value>
+  </data>
+  <data name="7001" xml:space="preserve">
+    <value>فشل العملية : {0} موجود مسبقا</value>
+  </data>
+  <data name="7002" xml:space="preserve">
+    <value>فشل العملية : {0} غير موجود </value>
+  </data>
+  <data name="7003" xml:space="preserve">
+    <value>فشل العملية : {0}  هو الافتراضى للاخرين</value>
+  </data>
+  <data name="7004" xml:space="preserve">
+    <value>فشل العملية : توجد بيانات متعلقة</value>
+  </data>
+  <data name="7005" xml:space="preserve">
+    <value>فشل العملية : نوع الملف غير مدعوم</value>
+  </data>
+  <data name="7006" xml:space="preserve">
+    <value>فشل العملية : [الاسم] موجود مسبقا</value>
+  </data>
+  <data name="7007" xml:space="preserve">
+    <value>فشل العملية : [اسم  المستخدم] موجود مسبقا</value>
+  </data>
+  <data name="7008" xml:space="preserve">
+    <value>فشل العملية : [الايميل] موجود مسبقا</value>
+  </data>
+  <data name="7009" xml:space="preserve">
+    <value>فشل العملية : لا يمكن حذف مستخدم بصلاحية المدير</value>
+  </data>
+  <data name="7010" xml:space="preserve">
+    <value>فشل العملية :  بيانات الانجليزية للحقل {0}  موجودة مسبقا</value>
+  </data>
+  <data name="7011" xml:space="preserve">
+    <value>فشل العملية :  بيانات العربية للحقل {0}  موجودة مسبقا</value>
+  </data>
+  <data name="7012" xml:space="preserve">
+    <value>فشل العملية : [اسم المستخدم] او [الباسورد] غير صحيح</value>
+  </data>
+  <data name="7013" xml:space="preserve">
+    <value>فشل العملية : [الباسورد] غير صحيح</value>
+  </data>
+  <data name="7014" xml:space="preserve">
+    <value>فشل العملية : المستخدم غير مفعل</value>
+  </data>
+  <data name="7015" xml:space="preserve">
+    <value>فشل العملية : {0} هى نسخة مميزة</value>
+  </data>
+  <data name="7016" xml:space="preserve">
+    <value>فشل العملية :{0}  يجب ان يكون نشط في حالة الافتراضي</value>
+  </data>
+  <data name="7017" xml:space="preserve">
+    <value>فشل العملية :{0}  يكون افتراضي لا يمكن حذفة</value>
+  </data>
+  <data name="7018" xml:space="preserve">
+    <value>فشل العملية :تم تعدى الحد المسموح به لعدد النسخ النشطة</value>
+  </data>
+  <data name="7019" xml:space="preserve">
+    <value>فشل العملية لينك التحميل او الاصدار موجود مسبقا </value>
+  </data>
+  <data name="7020" xml:space="preserve">
+    <value>فشل العملية: تم تفعيل الجوال بالفعل</value>
+  </data>
+  <data name="7021" xml:space="preserve">
+    <value>فشل العملية: تم تفعيل البريد الالكتروني بالفعل</value>
+  </data>
+  <data name="7022" xml:space="preserve">
+    <value>فشل العملية: تم تخطي عدد مرات المحاوله</value>
+  </data>
+  <data name="7023" xml:space="preserve">
+    <value>فشل العملية: كود التفعيل منتهي الصلاحيه</value>
+  </data>
+  <data name="7024" xml:space="preserve">
+    <value>فشل العملية: رابط التفعيل منتهي الصلاحيه</value>
+  </data>
+  <data name="7025" xml:space="preserve">
+    <value>فشل العملية: رابط التفعيل تالف</value>
+  </data>
+  <data name="7026" xml:space="preserve">
+    <value>فشل العملية: بيانات غير صحيحه</value>
+  </data>
+  <data name="7027" xml:space="preserve">
+    <value>فشل العملية: الرمز غير صحيح</value>
+  </data>
+  <data name="7028" xml:space="preserve">
+    <value>فشل العملية: الرمز مازال صالح</value>
+  </data>
+  <data name="7029" xml:space="preserve">
+    <value>فشل العملية: الرمزين غير متطابقين</value>
+  </data>
+  <data name="7030" xml:space="preserve">
+    <value>فشل العملية: البريد الالكتروني غير مفعل</value>
+  </data>
+  <data name="7031" xml:space="preserve">
+    <value>فشل العملية: لقد قمت بإستخدام الرقم السري من قبل</value>
+  </data>
+  <data name="7032" xml:space="preserve">
+    <value>فشل العملية: البريد الالكتروني رئيسي بالفعل</value>
+  </data>
+  <data name="7033" xml:space="preserve">
+    <value>فشل العملية :{0}  يجب ان يكون نشط في حالة عدم وجود اخر نشط</value>
+  </data>
+  <data name="7034" xml:space="preserve">
+    <value>فشل العملية :{0}  يكون افتراضي يجب ان تختار اخر افتراضي وحاول مره اخري</value>
+  </data>
+  <data name="7035" xml:space="preserve">
+    <value>فشل العملية: رقم سري غير صحيح او الرباط غير صحيح</value>
+  </data>
+  <data name="7036" xml:space="preserve">
+    <value>فشل العملية :{0}  لم يسدد جميع الفواتير المستحقة</value>
+  </data>
+  <data name="7037" xml:space="preserve">
+    <value>فشل العملية :لم يتم تسديد جميع {0} المستحقة</value>
+  </data>
+  <data name="7038" xml:space="preserve">
+    <value>فشل العملية : يجب تعديل السريال</value>
+  </data>
+  <data name="7039" xml:space="preserve">
+    <value>فشل العملية : تم تخطي العدد المسموح من الرخص</value>
+  </data>
+  <data name="7040" xml:space="preserve">
+    <value>فشل العملية : لقد تخطيت فتره الصلاحية</value>
+  </data>
+  <data name="7041" xml:space="preserve">
+    <value>فشل العملية :  حالة {0} غير مسموحة </value>
+  </data>
+  <data name="7042" xml:space="preserve">
+    <value>فشل العملية :  {0} غير متاح في بلدك </value>
+  </data>
+  <data name="7043" xml:space="preserve">
+    <value>فشل العملية :  {0} لم تنشأ بعد</value>
+  </data>
+  <data name="7044" xml:space="preserve">
+    <value>فشل العملية :  الباسورد الجديد غير مطابق لتأكيد الباسورد</value>
+  </data>
+  <data name="7045" xml:space="preserve">
+    <value>فشل العمليه : الرخصه لم تنتهي بعد</value>
+  </data>
+  <data name="7046" xml:space="preserve">
+    <value>فشل العمليه : لا يوجد فاتوره مدفوعه</value>
+  </data>
+  <data name="7047" xml:space="preserve">
+    <value>فشل العملية : لابد من شراء نسخة أولا</value>
+  </data>
+  <data name="7048" xml:space="preserve">
+    <value>فشل العمليه : لا يوجد اكثر من فاتوره</value>
+  </data>
+  <data name="7049" xml:space="preserve">
+    <value>فشل العملية : هذه الصلاحية مستخدمة بالفعل</value>
+  </data>
+  <data name="7050" xml:space="preserve">
+    <value>فشل العمليه : تم  قبول الاسترجاع من قبل</value>
+  </data>
+  <data name="7051" xml:space="preserve">
+    <value>فشل العمليه : تم رفض الاسترجاع من قبل</value>
+  </data>
+  <data name="7052" xml:space="preserve">
+    <value>فشل العملية : يجب ان يكون تاريخ نهاية الفاتورة اكبر من تاريخ بدا الفاتورة</value>
+  </data>
+  <data name="7053" xml:space="preserve">
+    <value>فشل العملية : فشلت عملية الدفع </value>
+  </data>
+  <data name="7054" xml:space="preserve">
+    <value>فشل العملية : يوجد اضافات لم تتم استرجعها</value>
+  </data>
+  <data name="7055" xml:space="preserve">
+    <value>فشل العملية : طريقه الدفع لا تصلح</value>
+  </data>
+  <data name="7056" xml:space="preserve">
+    <value>فشل العملية : لا يمكن الغاء التفعيل  لهذا الملصق</value>
+  </data>
+  <data name="7057" xml:space="preserve">
+    <value>فشل العملية : لا يمكن الوصول الي هذة الصفحة الان</value>
+  </data>
+  <data name="7058" xml:space="preserve">
+    <value>فشل العملية : يجب اختيار صفحة علي الاقل </value>
+  </data>
+  <data name="7059" xml:space="preserve">
+    <value>فشل العملية : يجب اختيار دولة واحدة علي الاقل</value>
+  </data>
+  <data name="7060" xml:space="preserve">
+    <value>فشل العمليه : البريد الالكتروني ينتمي لهاتف اخر</value>
+  </data>
+  <data name="7061" xml:space="preserve">
+    <value>فشل العمليه : الهاتف ينتمي لبريد الكتروني اخر</value>
+  </data>
+  <data name="7062" xml:space="preserve">
+    <value>فشل العمليه : يجب ان تختار فيرجين مدفوع</value>
+  </data>
+</root>
