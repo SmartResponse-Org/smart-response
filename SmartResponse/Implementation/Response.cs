@@ -1,6 +1,7 @@
 ﻿using FluentValidation.Results;
 using SmartResponse.Enums;
 using SmartResponse.Interfaces;
+using SmartResponse.Models;
 using System;
 using System.Collections.Generic;
 
@@ -10,7 +11,7 @@ namespace SmartResponse.Implementation
     {
         public bool IsSuccess { get => responseBuilder.IsSuccess; set { } }
 
-        public List<TErrorField> Errors { get; set; }
+        public List<ErrorModel> Errors { get; set; }
 
         public T Data { get; set; }
 
@@ -19,65 +20,74 @@ namespace SmartResponse.Implementation
         public Response()
         {
             responseBuilder = new ResponseBuilder<T>(this);
-            //_messageLocalizer = LocalizerProvider<ErrorMessage>.GetLocalizer();// new CustomStringLocalizer();// (ICustomStringLocalizer) // lServiceProviderFactory.ServiceProvider.GetService(typeof(ICustomStringLocalizer));
-            //_labelLocalizer =  LocalizerProvider<Label>.GetLocalizer();
-            //responseBuilder = new ResponseBuilder<T>(this, _messageLocalizer, _labelLocalizer);
         }
 
-        public IResponse<T> CreateResponse()
+        public IResponse<T> Return()
         {
-            return responseBuilder.CreateResponse();
+            return responseBuilder.Build();
         }
 
-        public IResponse<T> CreateResponse(T data)
+        public IResponse<T> Return(T data)
         {
             return responseBuilder.WithData(data).Build();
         }
 
-        public IResponse<T> CreateResponse(List<ValidationFailure> inputValidations = null)
+        public IResponse<T> Return(List<ValidationFailure> inputValidations = null)
         {
             return responseBuilder.WithErrors(inputValidations).Build();
         }
 
         //for one business error
-        public IResponse<T> CreateResponse(MessageCodes messageCode, string message = "")
+        public IResponse<T> Return(MessageCodeEnum messageCode, string message = "")
         {
             return responseBuilder.AppendError(messageCode, message).Build();
         }
 
-        public IResponse<T> CreateResponse(Exception ex)
+        public IResponse<T> Return(Exception ex)
         {
             return responseBuilder.WithException(ex).Build();
         }
 
-        public IResponse<T> AppendError(TErrorField error)
+        public IResponse<T> AppendError(ErrorModel error)
         {
-            return responseBuilder.AppendError(error).CreateResponse();
+            return responseBuilder
+                .AppendError(error)
+                .Build();
         }
 
-        public IResponse<T> AppendError(MessageCodes code, string? message = null)
+        public IResponse<T> AppendError(MessageCodeEnum code, string? message = null)
         {
-            return responseBuilder.AppendError(code, message).CreateResponse();
+            return responseBuilder
+                .AppendError(code, message)
+                .Build();
         }
 
-        public IResponse<T> AppendError(MessageCodes code, string fieldName, string message)
+        public IResponse<T> AppendError(MessageCodeEnum code, string fieldName, string message)
         {
-            return responseBuilder.AppendError(code, fieldName, message).CreateResponse();
+            return responseBuilder
+                .AppendError(code, fieldName, message)
+                .Build();
         }
 
         public IResponse<T> AppendError(ValidationFailure error)
         {
-            return responseBuilder.AppendError(error).CreateResponse();
+            return responseBuilder
+                .AppendError(error)
+                .Build();
         }
 
-        public IResponse<T> AppendErrors(List<TErrorField> errors)
+        public IResponse<T> AppendErrors(List<ErrorModel> errors)
         {
-            return responseBuilder.AppendErrors(errors).CreateResponse();
+            return responseBuilder
+                .AppendErrors(errors)
+                .Build();
         }
 
         public IResponse<T> AppendErrors(List<ValidationFailure> errors)
         {
-            return responseBuilder.AppendErrors(errors).CreateResponse();
+            return responseBuilder
+                .AppendErrors(errors)
+                .Build();
         }
     }
 }

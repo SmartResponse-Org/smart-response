@@ -1,6 +1,6 @@
 ﻿using FluentValidation.Results;
 using SmartResponse.Enums;
-using SmartResponse.Implementation;
+using SmartResponse.Models;
 using System;
 using System.Collections.Generic;
 
@@ -8,22 +8,22 @@ namespace SmartResponse.Interfaces
 {
     public interface IResponse<T> // where T : class
     {
-        public bool IsSuccess { get; set; }
-        public List<TErrorField> Errors { get; set; }
-        public T Data { get; set; }
+        bool IsSuccess { get; set; }
+        List<ErrorModel> Errors { get; set; }
+        T Data { get; set; }
 
-        IResponse<T> CreateResponse();
-        public IResponse<T> CreateResponse(T data);
-        public IResponse<T> CreateResponse(List<ValidationFailure> inputValidations = null);
+        IResponse<T> Return();
+        IResponse<T> Return(T data);
+        IResponse<T> Return(List<ValidationFailure> inputValidations = null);
         //for one business error
-        public IResponse<T> CreateResponse(MessageCodes messageCode, string message = "");
-        public IResponse<T> CreateResponse(Exception ex);
+        IResponse<T> Return(MessageCodeEnum messageCode, string message = "");
+        IResponse<T> Return(Exception ex);
 
-        public IResponse<T> AppendError(TErrorField error);
-        public IResponse<T> AppendError(MessageCodes code, string message);
-        public IResponse<T> AppendError(MessageCodes code, string fieldName, string message);
-        public IResponse<T> AppendError(ValidationFailure error);
-        public IResponse<T> AppendErrors(List<TErrorField> errors);
-        public IResponse<T> AppendErrors(List<ValidationFailure> errors);
+        IResponse<T> AppendError(ErrorModel error);
+        IResponse<T> AppendError(MessageCodeEnum code, string message);
+        IResponse<T> AppendError(MessageCodeEnum code, string fieldName, string message);
+        IResponse<T> AppendError(ValidationFailure error);
+        IResponse<T> AppendErrors(List<ErrorModel> errors);
+        IResponse<T> AppendErrors(List<ValidationFailure> errors);
     }
 }

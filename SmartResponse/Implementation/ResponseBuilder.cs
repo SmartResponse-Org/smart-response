@@ -2,6 +2,7 @@
 using SmartResponse.Enums;
 using SmartResponse.Interfaces;
 using SmartResponse.Localization;
+using SmartResponse.Models;
 using System;
 using System.Collections.Generic;
 
@@ -9,91 +10,74 @@ namespace SmartResponse.Implementation
 {
     public class ResponseBuilder<T>
     {
-        private bool isSuccess;
-        private T data;
-        private List<TErrorField> errors;
-        private Exception exception;
-        private IResponse<T> response;
+        private bool _isSuccess;
+        private T _data;
+        private List<ErrorModel> _errors;
+        private Exception _exception;
+        private IResponse<T> _response;
         private ICustomStringLocalizer<ErrorMessage> _messageLocalizer;
         private ICustomStringLocalizer<Label> _labelLocalizer;
 
-        internal ResponseBuilder(IResponse<T> response)
+        public ResponseBuilder(IResponse<T> response)
         {
             //this.data = Activator.CreateInstance<T>();//TODO:recheck this
-            this.response = response;
-            this.errors = new List<TErrorField>();
-            this.exception = null;
+            _response = response;
+            _errors = new List<ErrorModel>();
+            _exception = null;
             _messageLocalizer = LocalizerProvider<ErrorMessage>.GetLocalizer();
             _labelLocalizer = LocalizerProvider<Label>.GetLocalizer();
         }
 
-        internal ResponseBuilder(IResponse<T> response, ICustomStringLocalizer<ErrorMessage> messageLocalizer, ICustomStringLocalizer<Label> labelLocalizer)
+        public ResponseBuilder<T> AppendError(ErrorModel error)
         {
-            //this.data = Activator.CreateInstance<T>();//TODO:recheck this
-            this.response = response;
-            this.errors = new List<TErrorField>();
-            this.exception = null;
-            this._messageLocalizer = messageLocalizer;
-            this._labelLocalizer = labelLocalizer;
+            _errors.Add(error);
+
+            return this;
         }
 
-        private void InitializeErrorsIfNot()
+        public ResponseBuilder<T> AppendError(MessageCodeEnum code, string message)
         {
-            if (this.errors == null)
-                this.errors = new List<TErrorField>();
-        }
-
-        internal ResponseBuilder<T> AppendError(TErrorField error)
-        {
-            return AppendErrors(new List<TErrorField> { error });
-        }
-
-        internal ResponseBuilder<T> AppendError(MessageCodes code, string message)
-        {
-            return AppendErrors(new List<TErrorField>
+            _errors.Add(new ErrorModel
             {
-                new TErrorField
-                    {
-                        FieldName = "",
-                        Code = code.StringValue(),
-                        Message = !string.IsNullOrWhiteSpace(message)
-                                ? _messageLocalizer [code.StringValue(),_labelLocalizer[message]]
-                                : _messageLocalizer [code.StringValue()]
-                        //Message = !string.IsNullOrWhiteSpace(message)
-                        //        ? _messageLocalizer [code.StringValue(),  _labelLocalizer[message] != null && !string.IsNullOrWhiteSpace( _labelLocalizer[message].Value)? _labelLocalizer[message]: message]
-                        //        : _messageLocalizer [code.StringValue()]
+                FieldName = "",
+                Code = code.StringValue(),
+                Message = !string.IsNullOrWhiteSpace(message)
+                                ? _messageLocalizer[code.StringValue(), _labelLocalizer[message]]
+                                : _messageLocalizer[code.StringValue()]
+            });
 
-                    }
-               }
-            );
+            return this;
         }
 
-        internal ResponseBuilder<T> AppendError(MessageCodes code, string fieldName, string message)
+        public ResponseBuilder<T> AppendError(MessageCodeEnum code, string fieldName, string message)
         {
-            return AppendErrors(new List<TErrorField> { new TErrorField { FieldName = fieldName, Code = code.StringValue() ,
-                  Message =_messageLocalizer[code.StringValue(),!string.IsNullOrWhiteSpace(message) ?
-                $"["+_labelLocalizer[message]+"]": message ]
-            } });
+            _errors.Add(new ErrorModel
+            {
+                FieldName = fieldName,
+                Code = code.StringValue(),
+                Message = _messageLocalizer[code.StringValue(), !string.IsNullOrWhiteSpace(message) ? $"[" + _labelLocalizer[message] + "]" : message]
+            });
+
+            return this;
         }
 
-        internal ResponseBuilder<T> AppendError(ValidationFailure error)
+        public ResponseBuilder<T> AppendError(ValidationFailure error)
         {
             return AppendErrors(new List<ValidationFailure> { error });
         }
 
-        internal ResponseBuilder<T> AppendErrors(List<TErrorField> errors)
+        public ResponseBuilder<T> AppendErrors(List<ErrorModel> errors)
         {
-            InitializeErrorsIfNot();
-            this.errors.AddRange(errors);
+            _errors.AddRange(errors);
+
             return this;
         }
 
-        internal ResponseBuilder<T> AppendErrors(List<ValidationFailure> errors)
+        public ResponseBuilder<T> AppendErrors(List<ValidationFailure> errors)
         {
-            InitializeErrorsIfNot();
             foreach (var item in errors)
             {
-                this.errors.Add(new TErrorField
+                _errors.Add(new ErrorModel
 
                 {
                     FieldName = item.PropertyName,
@@ -101,36 +85,37 @@ namespace SmartResponse.Implementation
                     Message = item.ErrorMessage,
                     FieldLang = item.AttemptedValue?.ToString()
                 });
-
             }
+
             return this;
         }
-        
-        internal ResponseBuilder<T> WithError(TErrorField error)
+
+        public ResponseBuilder<T> WithError(ErrorModel error)
         {
-            return WithErrors(new List<TErrorField> { error });
+            return WithErrors(new List<ErrorModel> { error });
         }
 
-        internal ResponseBuilder<T> WithError(ValidationFailure error)
+        public ResponseBuilder<T> WithError(ValidationFailure error)
         {
             return WithErrors(new List<ValidationFailure> { error });
         }
 
-        internal ResponseBuilder<T> WithErrors(List<TErrorField> errors)
+        public ResponseBuilder<T> WithErrors(List<ErrorModel> errors)
         {
-            InitializeErrorsIfNot();
-            this.errors.AddRange(errors);
+            _errors.AddRange(errors);
+            
             return this;
         }
 
-        internal ResponseBuilder<T> WithErrors(List<ValidationFailure> errors)
+        public ResponseBuilder<T> WithErrors(List<ValidationFailure> errors)
         {
-            InitializeErrorsIfNot();
             foreach (var item in errors)
             {
                 item.PropertyName = item.PropertyName == "File.File" ? "File" : item.PropertyName;
+
                 string localizedFieldName = _labelLocalizer[item.PropertyName];
-                this.errors.Add(new TErrorField
+
+                _errors.Add(new ErrorModel
                 {
                     FieldName = item.PropertyName,
                     //FieldName = !string.IsNullOrWhiteSpace(localizedFieldName)
@@ -141,38 +126,35 @@ namespace SmartResponse.Implementation
                             ? $"[" + _labelLocalizer[item.PropertyName] + "]"
                             : $"[" + item.PropertyName + "]"),
                     //for (Default,Ar) in Required Fields with  jsonmodel values
-                    FieldLang = item.ErrorCode == MessageCodes.Required.StringValue() ? item.AttemptedValue?.ToString() : null
+                    FieldLang = item.ErrorCode == MessageCodeEnum.Required.StringValue() ? item.AttemptedValue?.ToString() : null
                 });
-                ;
-                ;
-
             }
+
             return this;
         }
 
-        internal ResponseBuilder<T> WithData(T data)
+        public ResponseBuilder<T> WithData(T data)
         {
-            this.data = data;
+            _data = data;
             return this;
         }
 
-        internal ResponseBuilder<T> WithException(Exception exception)
+        public ResponseBuilder<T> WithException(Exception exception)
         {
-            this.exception = exception;
-            this.errors.Add(new TErrorField { Message = "exMessage:" + exception.Message + "ex.InnerException:" + exception.InnerException + "ex.StackTrace:" + exception.StackTrace });
+            _exception = exception;
+            _errors.Add(new ErrorModel { Message = "exMessage:" + exception.Message + "ex.InnerException:" + exception.InnerException + "ex.StackTrace:" + exception.StackTrace });
             return this;
         }
 
-        internal bool IsSuccess { get => ((errors == null || errors.Count == 0) && exception == null) ? true : false; }
+        public bool IsSuccess { get => ((_errors == null || _errors.Count == 0) && _exception == null) ? true : false; }
 
-        internal IResponse<T> Build()
+        public IResponse<T> Build()
         {
-            isSuccess = ((errors == null || errors.Count == 0) && exception == null) ? true : false;
-            response.IsSuccess = isSuccess;
-            response.Errors = errors;
-            response.Data = data;
-            return response;
-
+            _isSuccess = ((_errors == null || _errors.Count == 0) && _exception == null);
+            _response.IsSuccess = _isSuccess;
+            _response.Errors = _errors;
+            _response.Data = _data;
+            return _response;
         }
     }
 }

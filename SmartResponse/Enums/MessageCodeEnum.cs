@@ -2,7 +2,7 @@
 
 namespace SmartResponse.Enums
 {
-    public enum MessageCodes
+    public enum MessageCodeEnum
     {
         [Description("Success")]
         Success = 1000,
