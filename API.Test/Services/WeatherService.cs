@@ -1,4 +1,5 @@
-﻿using SmartResponse.Enums;
+﻿using API.Test.Localization;
+using SmartResponse.Enums;
 using SmartResponse.Interfaces;
 using SmartResponse.Managers;
 using SmartResponse.Models;
@@ -13,18 +14,9 @@ namespace API.Test.Services
 
         public IResponse<string> GetWeather(int count)
         {
-            var response = ResponseManager<string>.Create(Culture.en);
+            var response = ResponseManager<string>.Create();
 
-            if (count < 1)
-            {
-                response.Finish("Phone", MessageCode.InbetweenValue, "Phone", "2", "11");
-
-                return response.Finish();
-            }
-
-            var weather = "23 C";
-
-            return response.Finish(weather);
+            return response.Finish<Label, ErrorMessage>("78");
         }
     }
 }

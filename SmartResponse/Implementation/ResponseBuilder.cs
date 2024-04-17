@@ -47,33 +47,8 @@ namespace SmartResponse.Implementation
             return this;
         }
 
-        public ResponseBuilder<T> AppendError(MessageCode code, params string[] labels)
-        {
-            string msg = _messageLocalizer[code.StringValue()];
 
-            if (labels.Any())
-            {
-                var localizedLabels = new List<string>();
-
-                foreach (var label in labels)
-                {
-                    localizedLabels.Add(_labelLocalizer[label]);
-                }
-
-                msg = _messageLocalizer[code.StringValue(), localizedLabels.ToArray()];
-            }
-
-            _errors.Add(new ErrorModel
-            {
-                FieldName = "",
-                Code = code.StringValue(),
-                Message = msg
-            });
-
-            return this;
-        }
-
-        public ResponseBuilder<T> AppendError(MessageCode code, string fieldName, params string[] labels)
+        public ResponseBuilder<T> AppendError(MessageCode code, string? fieldName, params string[] labels)
         {
             string msg = _messageLocalizer[code.StringValue()];
 
@@ -98,6 +73,36 @@ namespace SmartResponse.Implementation
 
             return this;
         }
+
+        public ResponseBuilder<T> AppendError<Error, Label>(string code, string? fieldName, params string[] labels)
+        {
+            var _messageLocalizer = LocalizerProvider<Error>.GetLocalizer();
+            var _labelLocalizer = LocalizerProvider<Label>.GetLocalizer();
+
+            string msg = _messageLocalizer[code];
+
+            if (labels.Any())
+            {
+                var localizedLabels = new List<string>();
+
+                foreach (var label in labels)
+                {
+                    localizedLabels.Add(_labelLocalizer[label]);
+                }
+
+                msg = _messageLocalizer[code, localizedLabels.ToArray()];
+            }
+
+            _errors.Add(new ErrorModel
+            {
+                FieldName = fieldName,
+                Code = code,
+                Message = msg
+            });
+
+            return this;
+        }
+
 
         public ResponseBuilder<T> AppendError(ValidationFailure error)
         {

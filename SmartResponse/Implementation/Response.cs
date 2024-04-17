@@ -33,7 +33,7 @@ namespace SmartResponse.Implementation
             return responseBuilder.WithData(data).Build();
         }
 
-        
+
         public IResponse<T> Finish(List<ValidationFailure> inputValidations = null)
         {
             return responseBuilder.WithErrors(inputValidations).Build();
@@ -41,27 +41,26 @@ namespace SmartResponse.Implementation
 
 
         //for one business error
-        public IResponse<T> Finish(MessageCode code, params string[] labels)
-        {
-            return responseBuilder
-                .AppendError(code, labels)
-                .Build();
-        }
-
-        public IResponse<T> Finish(string fieldName, MessageCode code, params string[] labels)
+        public IResponse<T> Finish(MessageCode code, string? fieldName, params string[] labels)
         {
             return responseBuilder
                 .AppendError(code, fieldName, labels)
                 .Build();
         }
 
-      
+        public IResponse<T> Finish<Error, Label>(string code, string? fieldName, params string[] labels)
+        {
+            return responseBuilder
+                .AppendError<Error, Label>(code, fieldName, labels)
+                .Build();
+        }
+
         public IResponse<T> Finish(Exception ex)
         {
             return responseBuilder.WithException(ex).Build();
         }
 
-        
+
         public IResponse<T> AppendError(ErrorModel error)
         {
             return responseBuilder
@@ -75,23 +74,23 @@ namespace SmartResponse.Implementation
                 .AppendErrors(errors)
                 .Build();
         }
-        
 
-        public IResponse<T> AppendError(MessageCode code, params string[] labels)
-        {
-            return responseBuilder
-                .AppendError(code, labels)
-                .Build();
-        }
 
-        public IResponse<T> AppendError(string fieldName, MessageCode code, params string[] labels)
+        public IResponse<T> AppendError(MessageCode code, string? fieldName, params string[] labels)
         {
             return responseBuilder
                 .AppendError(code, fieldName, labels)
                 .Build();
         }
 
-      
+        public IResponse<T> AppendError<Error, Label>(string code, string? fieldName, params string[] labels)
+        {
+            return responseBuilder
+                .AppendError<Error, Label>(code, fieldName, labels)
+                .Build();
+        }
+
+        
         public IResponse<T> AppendError(ValidationFailure error)
         {
             return responseBuilder

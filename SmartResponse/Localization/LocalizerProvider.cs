@@ -2,7 +2,7 @@
 
 namespace SmartResponse.Localization
 {
-    public class LocalizerProvider<T> where T : class
+    public class LocalizerProvider<T> 
     {
         private static CustomStringLocalizer<T> Localizer { get; set; }
 

@@ -16,18 +16,18 @@ namespace SmartResponse.Interfaces
         IResponse<T> Finish(T data);
 
         IResponse<T> Finish(List<ValidationFailure> inputValidations = null);
-        
-        IResponse<T> Finish(MessageCode code, params string[] labels);
-        IResponse<T> Finish(string fieldName, MessageCode code, params string[] labels);
+
+        IResponse<T> Finish(MessageCode code, string? fieldName = null, params string[] labels);
+        IResponse<T> Finish<Error, Label>(string code, string? fieldName = null, params string[] labels);
 
         IResponse<T> Finish(Exception ex);
 
         IResponse<T> AppendError(ErrorModel error);
         IResponse<T> AppendErrors(List<ErrorModel> errors);
 
-        IResponse<T> AppendError(MessageCode code, params string[] labels);
-        IResponse<T> AppendError(string fieldName, MessageCode code, params string[] labels);
-        
+        IResponse<T> AppendError(MessageCode code, string? fieldName = null, params string[] labels);
+        IResponse<T> AppendError<Error, Label>(string code, string? fieldName = null, params string[] labels);
+
         IResponse<T> AppendError(ValidationFailure error);
         IResponse<T> AppendErrors(List<ValidationFailure> errors);
     }
