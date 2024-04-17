@@ -2,12 +2,12 @@
 {
     public class ErrorModel
     {
+        public bool IsInputError { get => !string.IsNullOrWhiteSpace(FieldName); }
+
         public string? FieldName { get; set; }
 
-        public string Code { get; set; }
+        public string Code { get; set; } = string.Empty;
 
-        public string Message { get; set; }
-
-        public string FieldLang { get; set; }// = nameof(JsonLanguageModel.Default);
+        public string Message { get; set; } = string.Empty;
     }
 }

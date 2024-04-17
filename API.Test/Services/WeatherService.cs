@@ -1,8 +1,6 @@
 ﻿using API.Test.Localization;
-using SmartResponse.Enums;
 using SmartResponse.Interfaces;
 using SmartResponse.Managers;
-using SmartResponse.Models;
 
 namespace API.Test.Services
 {
@@ -16,7 +14,7 @@ namespace API.Test.Services
         {
             var response = ResponseManager<string>.Create();
 
-            return response.Finish<Label, ErrorMessage>("78");
+            return response.Finish<ErrorMessage, Label>("A-11", nameof(count), "Phone", "0", "11");
         }
     }
 }

@@ -126,7 +126,7 @@ namespace SmartResponse.Implementation
                     FieldName = item.PropertyName,
                     Code = item.ErrorCode,
                     Message = item.ErrorMessage,
-                    FieldLang = item.AttemptedValue?.ToString()
+                    //FieldLang = item.AttemptedValue?.ToString()
                 });
             }
 
@@ -169,7 +169,7 @@ namespace SmartResponse.Implementation
                             ? $"[" + _labelLocalizer[item.PropertyName] + "]"
                             : $"[" + item.PropertyName + "]"),
                     //for (Default,Ar) in Required Fields with  jsonmodel values
-                    FieldLang = item.ErrorCode == MessageCode.Required.StringValue() ? item.AttemptedValue?.ToString() : null
+                    // FieldLang = item.ErrorCode == MessageCode.Required.StringValue() ? item.AttemptedValue?.ToString() : null
                 });
             }
 

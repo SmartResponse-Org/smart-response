@@ -63,9 +63,9 @@ namespace API.Test.Localization {
         /// <summary>
         ///   Looks up a localized string similar to Failed : {0} Must Be Between {1} And {2}.
         /// </summary>
-        public static string _6004 {
+        public static string A_11 {
             get {
-                return ResourceManager.GetString("6004", resourceCulture);
+                return ResourceManager.GetString("A-11", resourceCulture);
             }
         }
     }
