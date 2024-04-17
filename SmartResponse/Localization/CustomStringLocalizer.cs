@@ -55,10 +55,11 @@ namespace SmartResponse.Localization
             {
                 result = string.Empty;
             }
-          
-            result = !string.IsNullOrWhiteSpace(result) && arguments != null && arguments.Length > 0
-                    ? string.Format(result, arguments.ToArray().PrefSuffArray("[", "]"))
-                    : result;
+
+            if(!string.IsNullOrWhiteSpace(result) && arguments != null && arguments.Any())
+            {
+                result = string.Format(result, arguments.ToArray().PrefSuffArray("[", "]"));
+            }
             
             return result;
         }

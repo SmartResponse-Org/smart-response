@@ -17,59 +17,52 @@ namespace SmartResponse.Implementation
 
         private ResponseBuilder<T> responseBuilder;
 
-        public Response()
+        public Response(Culture culture)
         {
-            responseBuilder = new ResponseBuilder<T>(this);
+            responseBuilder = new ResponseBuilder<T>(this, culture);
         }
 
-        public IResponse<T> Return()
+
+        public IResponse<T> Finish()
         {
             return responseBuilder.Build();
         }
 
-        public IResponse<T> Return(T data)
+        public IResponse<T> Finish(T data)
         {
             return responseBuilder.WithData(data).Build();
         }
 
-        public IResponse<T> Return(List<ValidationFailure> inputValidations = null)
+        
+        public IResponse<T> Finish(List<ValidationFailure> inputValidations = null)
         {
             return responseBuilder.WithErrors(inputValidations).Build();
         }
 
+
         //for one business error
-        public IResponse<T> Return(MessageCodeEnum messageCode, string message = "")
+        public IResponse<T> Finish(MessageCode code, params string[] labels)
         {
-            return responseBuilder.AppendError(messageCode, message).Build();
+            return responseBuilder
+                .AppendError(code, labels)
+                .Build();
         }
 
-        public IResponse<T> Return(Exception ex)
+        public IResponse<T> Finish(string fieldName, MessageCode code, params string[] labels)
+        {
+            return responseBuilder
+                .AppendError(code, fieldName, labels)
+                .Build();
+        }
+
+      
+        public IResponse<T> Finish(Exception ex)
         {
             return responseBuilder.WithException(ex).Build();
         }
 
+        
         public IResponse<T> AppendError(ErrorModel error)
-        {
-            return responseBuilder
-                .AppendError(error)
-                .Build();
-        }
-
-        public IResponse<T> AppendError(MessageCodeEnum code, string? message = null)
-        {
-            return responseBuilder
-                .AppendError(code, message)
-                .Build();
-        }
-
-        public IResponse<T> AppendError(MessageCodeEnum code, string fieldName, string message)
-        {
-            return responseBuilder
-                .AppendError(code, fieldName, message)
-                .Build();
-        }
-
-        public IResponse<T> AppendError(ValidationFailure error)
         {
             return responseBuilder
                 .AppendError(error)
@@ -80,6 +73,29 @@ namespace SmartResponse.Implementation
         {
             return responseBuilder
                 .AppendErrors(errors)
+                .Build();
+        }
+        
+
+        public IResponse<T> AppendError(MessageCode code, params string[] labels)
+        {
+            return responseBuilder
+                .AppendError(code, labels)
+                .Build();
+        }
+
+        public IResponse<T> AppendError(string fieldName, MessageCode code, params string[] labels)
+        {
+            return responseBuilder
+                .AppendError(code, fieldName, labels)
+                .Build();
+        }
+
+      
+        public IResponse<T> AppendError(ValidationFailure error)
+        {
+            return responseBuilder
+                .AppendError(error)
                 .Build();
         }
 

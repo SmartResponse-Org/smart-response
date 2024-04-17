@@ -2,7 +2,7 @@
 
 namespace SmartResponse.Enums
 {
-    public enum MessageCodeEnum
+    public enum MessageCode
     {
         [Description("Success")]
         Success = 1000,
@@ -25,7 +25,8 @@ namespace SmartResponse.Enums
         GreaterThanZero = 6002,
         [Description("Length Validation Error")]
         LengthValidationError = 6003,
-        [Description("Failed : {2} Must Be Between {0} And {1}")]
+        /// <summary>Failed: {key} Must Be Between {min} And {max}</summary>
+        [Description("Failed : {0} Must Be Between {1} And {2}")]
         InbetweenValue = 6004,
         [Description("Failed : {1} Must Be GreaterThan {0}")]
         InvalidMinLength = 6005,

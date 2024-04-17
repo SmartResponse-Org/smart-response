@@ -145,13 +145,13 @@
     <value>فشل العملية : خطأ في طول البيانات المدخلة</value>
   </data>
   <data name="6004" xml:space="preserve">
-    <value>فشل العملية : {2} يجب ان تكون  من {0}  الي{1}</value>
+    <value>فشل العملية : {0} يجب ان تكون  من {1}  الي{2}</value>
   </data>
   <data name="6005" xml:space="preserve">
-    <value>فشل العملية : {1} يجب ان تكون اكبر من {0}</value>
+    <value>فشل العملية : {0} يجب ان تكون اكبر من {1}</value>
   </data>
   <data name="6006" xml:space="preserve">
-    <value>فشل العملية : {1} يجب ان تكون اقل من {0}</value>
+    <value>فشل العملية : {0} يجب ان تكون اقل من {1}</value>
   </data>
   <data name="6007" xml:space="preserve">
     <value>فشل العملية : الايميل غير صحيح</value>

@@ -157,7 +157,7 @@
     <value>CustomerReview</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>Email</value>
+    <value>jackswilam@yahoo.com</value>
   </data>
   <data name="Employee" xml:space="preserve">
     <value>Employee</value>
@@ -197,6 +197,9 @@
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Telephone</value>
   </data>
   <data name="PriceLevel" xml:space="preserve">
     <value>PriceLevel</value>

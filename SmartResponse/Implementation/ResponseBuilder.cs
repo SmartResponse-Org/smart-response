@@ -5,6 +5,8 @@ using SmartResponse.Localization;
 using SmartResponse.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 
 namespace SmartResponse.Implementation
 {
@@ -14,18 +16,28 @@ namespace SmartResponse.Implementation
         private T _data;
         private List<ErrorModel> _errors;
         private Exception _exception;
-        private IResponse<T> _response;
+        private Response<T> _response;
         private ICustomStringLocalizer<ErrorMessage> _messageLocalizer;
         private ICustomStringLocalizer<Label> _labelLocalizer;
 
-        public ResponseBuilder(IResponse<T> response)
+        public ResponseBuilder(Response<T> response, Culture culture)
         {
             //this.data = Activator.CreateInstance<T>();//TODO:recheck this
             _response = response;
             _errors = new List<ErrorModel>();
             _exception = null;
-            _messageLocalizer = LocalizerProvider<ErrorMessage>.GetLocalizer();
-            _labelLocalizer = LocalizerProvider<Label>.GetLocalizer();
+
+            var cultureInfo = new CultureInfo("en");
+
+            switch (culture)
+            {
+                case Culture.ar:
+                    cultureInfo = new CultureInfo("ar");
+                    break;
+            }
+
+            _messageLocalizer = LocalizerProvider<ErrorMessage>.GetLocalizer(cultureInfo);
+            _labelLocalizer = LocalizerProvider<Label>.GetLocalizer(cultureInfo);
         }
 
         public ResponseBuilder<T> AppendError(ErrorModel error)
@@ -35,27 +47,53 @@ namespace SmartResponse.Implementation
             return this;
         }
 
-        public ResponseBuilder<T> AppendError(MessageCodeEnum code, string message)
+        public ResponseBuilder<T> AppendError(MessageCode code, params string[] labels)
         {
+            string msg = _messageLocalizer[code.StringValue()];
+
+            if (labels.Any())
+            {
+                var localizedLabels = new List<string>();
+
+                foreach (var label in labels)
+                {
+                    localizedLabels.Add(_labelLocalizer[label]);
+                }
+
+                msg = _messageLocalizer[code.StringValue(), localizedLabels.ToArray()];
+            }
+
             _errors.Add(new ErrorModel
             {
                 FieldName = "",
                 Code = code.StringValue(),
-                Message = !string.IsNullOrWhiteSpace(message)
-                                ? _messageLocalizer[code.StringValue(), _labelLocalizer[message]]
-                                : _messageLocalizer[code.StringValue()]
+                Message = msg
             });
 
             return this;
         }
 
-        public ResponseBuilder<T> AppendError(MessageCodeEnum code, string fieldName, string message)
+        public ResponseBuilder<T> AppendError(MessageCode code, string fieldName, params string[] labels)
         {
+            string msg = _messageLocalizer[code.StringValue()];
+
+            if (labels.Any())
+            {
+                var localizedLabels = new List<string>();
+
+                foreach (var label in labels)
+                {
+                    localizedLabels.Add(_labelLocalizer[label]);
+                }
+
+                msg = _messageLocalizer[code.StringValue(), localizedLabels.ToArray()];
+            }
+
             _errors.Add(new ErrorModel
             {
                 FieldName = fieldName,
                 Code = code.StringValue(),
-                Message = _messageLocalizer[code.StringValue(), !string.IsNullOrWhiteSpace(message) ? $"[" + _labelLocalizer[message] + "]" : message]
+                Message = msg
             });
 
             return this;
@@ -103,7 +141,7 @@ namespace SmartResponse.Implementation
         public ResponseBuilder<T> WithErrors(List<ErrorModel> errors)
         {
             _errors.AddRange(errors);
-            
+
             return this;
         }
 
@@ -126,7 +164,7 @@ namespace SmartResponse.Implementation
                             ? $"[" + _labelLocalizer[item.PropertyName] + "]"
                             : $"[" + item.PropertyName + "]"),
                     //for (Default,Ar) in Required Fields with  jsonmodel values
-                    FieldLang = item.ErrorCode == MessageCodeEnum.Required.StringValue() ? item.AttemptedValue?.ToString() : null
+                    FieldLang = item.ErrorCode == MessageCode.Required.StringValue() ? item.AttemptedValue?.ToString() : null
                 });
             }
 

@@ -10,7 +10,7 @@ namespace SmartResponse.IOC
         public static IServiceCollection AddSmartResponse(this IServiceCollection services)
         {
             services.AddTransient(typeof(ICustomStringLocalizer<>), typeof(CustomStringLocalizer<>));
-            services.AddTransient(typeof(IResponse<>), typeof(Response<>));
+            //services.AddTransient(typeof(IResponse<>), typeof(Response<>));
 
             return services;
         }
