@@ -6,9 +6,14 @@ namespace SmartResponse.Managers
 {
     public class ResponseManager<T>
     {
-        public static IResponse<T> Create(Culture culture = Culture.en)
+        public static IResponseBuilder<T> Create(Culture culture = Culture.en)
         {
-            return new Response<T>(culture);
+            return new ResponseBuilder<T>(new Response<T>(), culture);
+        }
+        
+        public static IResponseBuilder<T> Create(string culture)
+        {
+            return new ResponseBuilder<T>(new Response<T>(), culture);
         }
     }
 }

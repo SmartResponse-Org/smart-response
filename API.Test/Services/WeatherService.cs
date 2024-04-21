@@ -1,6 +1,7 @@
-﻿using API.Test.Localization;
+﻿using SmartResponse.Enums;
 using SmartResponse.Interfaces;
 using SmartResponse.Managers;
+using SmartResponse.Models;
 
 namespace API.Test.Services
 {
@@ -14,7 +15,20 @@ namespace API.Test.Services
         {
             var response = ResponseManager<string>.Create();
 
-            return response.Finish<ErrorMessage, Label>("A-11", nameof(count), "Phone", "0", "11");
+            if(count < 5)
+            {
+                response.Append(MessageCode.InvalidEmail)
+                    .Append(MessageCode.InvalidFileSize)
+                    .Append(new ErrorModel
+                    {
+                        Code = "Ad",
+                        Message = "Invalid AD"
+                    });
+
+                return response.Build("Wrong");
+            }
+
+            return response.Build();
         }
     }
 }
