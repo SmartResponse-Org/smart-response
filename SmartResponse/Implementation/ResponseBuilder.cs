@@ -188,31 +188,26 @@ namespace SmartResponse.Implementation
         //    return Build();
         //}
 
-        //private ResponseBuilder<T> WithErrors(List<ValidationFailure> errors)
-        //{
-        //    foreach (var item in errors)
-        //    {
-        //        item.PropertyName = item.PropertyName == "File.File" ? "File" : item.PropertyName;
+        private ResponseBuilder<T> WithErrors(List<ValidationFailure> errors)
+        {
+            foreach (var item in errors)
+            {
+                item.PropertyName = item.PropertyName == "File.File" ? "File" : item.PropertyName;
 
-        //        string localizedFieldName = _labelLocalizer[item.PropertyName];
+                string localizedFieldName = _labelLocalizer[item.PropertyName];
 
-        //        _errors.Add(new ErrorModel
-        //        {
-        //            FieldName = item.PropertyName,
-        //            //FieldName = !string.IsNullOrWhiteSpace(localizedFieldName)
-        //            //          ? $"[" + localizedFieldName + "]"
-        //            //          : $"[" + item.PropertyName + "]",
-        //            Code = item.ErrorCode,
-        //            Message = string.Format(item.ErrorMessage, !string.IsNullOrWhiteSpace(localizedFieldName)
-        //                    ? $"[" + _labelLocalizer[item.PropertyName] + "]"
-        //                    : $"[" + item.PropertyName + "]"),
-        //            //for (Default,Ar) in Required Fields with  jsonmodel values
-        //            // FieldLang = item.ErrorCode == MessageCode.Required.StringValue() ? item.AttemptedValue?.ToString() : null
-        //        });
-        //    }
+                _errors.Add(new ErrorModel
+                {
+                    FieldName = item.PropertyName,
+                    Code = item.ErrorCode,
+                    Message = string.Format(item.ErrorMessage, !string.IsNullOrWhiteSpace(localizedFieldName)
+                            ? $"[" + _labelLocalizer[item.PropertyName] + "]"
+                            : $"[" + item.PropertyName + "]"),
+                });
+            }
 
-        //    return this;
-        //}
+            return this;
+        }
 
 
         public IResponse<T> Build(T data)
