@@ -4,7 +4,7 @@ namespace SmartResponse.Enums
 {
     public enum MessageCode
     {
-        [Description("Success")]
+        [Description("SM-G-1000")]
         Success = 1000,
         [Description("Internal Server Error")]
         Failed = 2000,
@@ -32,7 +32,7 @@ namespace SmartResponse.Enums
         InvalidMinLength = 6005,
         [Description("Failed : {1} Must Be LessThan {0}")]
         InvalidMaxLength = 6006,
-        [Description("Failed : Invalid Email")]
+        [Description("SR-IV-6007")]
         InvalidEmail = 6007,
         [Description("Failed :Invalid Items Count")]
         InvalidItemsCount = 6008,

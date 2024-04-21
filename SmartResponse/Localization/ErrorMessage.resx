@@ -153,9 +153,6 @@
   <data name="6006" xml:space="preserve">
     <value>Failed : {0} Must Be LessThan {1}</value>
   </data>
-  <data name="6007" xml:space="preserve">
-    <value>Failed : Invalid [Email]</value>
-  </data>
   <data name="6008" xml:space="preserve">
     <value>Failed :Invalid Items Count</value>
   </data>
@@ -386,5 +383,8 @@
   </data>
   <data name="7061" xml:space="preserve">
     <value>Failed : Mobile belongs to other email</value>
+  </data>
+  <data name="SR-IV-6007" xml:space="preserve">
+    <value>Failed : Invalid [Email]</value>
   </data>
 </root>

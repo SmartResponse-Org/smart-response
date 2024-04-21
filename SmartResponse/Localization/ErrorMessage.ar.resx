@@ -153,9 +153,6 @@
   <data name="6006" xml:space="preserve">
     <value>فشل العملية : {0} يجب ان تكون اقل من {1}</value>
   </data>
-  <data name="6007" xml:space="preserve">
-    <value>فشل العملية : الايميل غير صحيح</value>
-  </data>
   <data name="6008" xml:space="preserve">
     <value>فشل العملية : العدد غير صحيح</value>
   </data>
@@ -389,5 +386,8 @@
   </data>
   <data name="7062" xml:space="preserve">
     <value>فشل العمليه : يجب ان تختار فيرجين مدفوع</value>
+  </data>
+  <data name="SR-IV-6007" xml:space="preserve">
+    <value>فشل العملية : الايميل غير صحيح</value>
   </data>
 </root>

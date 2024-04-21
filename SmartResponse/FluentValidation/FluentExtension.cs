@@ -27,10 +27,10 @@ namespace SmartResponse.FluentValidation
                 var trimedPropertyName = cfg.PropertyName.Trim()?.Replace(" ", "");
                 var localizedLabel = _labelLocalizer[trimedPropertyName];
                 var localizedPropertyDisplayName = !string.IsNullOrWhiteSpace(localizedLabel) ? localizedLabel : trimedPropertyName;
-                string localizedMessage = _messageLocalizer[messageCode.StringValue(), localizedPropertyDisplayName];
+                string localizedMessage = _messageLocalizer[messageCode.GetDescription(), localizedPropertyDisplayName];
                
-                localizedMessage = string.IsNullOrWhiteSpace(label) ? localizedMessage : _messageLocalizer[messageCode.StringValue(), label];
-                cfg.Current.ErrorCode = messageCode.StringValue();
+                localizedMessage = string.IsNullOrWhiteSpace(label) ? localizedMessage : _messageLocalizer[messageCode.GetDescription(), label];
+                cfg.Current.ErrorCode = messageCode.GetDescription();
                 cfg.Current.SetErrorMessage(localizedMessage);
             });
 
@@ -50,7 +50,7 @@ namespace SmartResponse.FluentValidation
                 var trimedPropertyName = cfg.PropertyName.Trim()?.Replace(" ", "");
                 var localizedLabel = _labelLocalizer[trimedPropertyName];
                 var localizedPropertyDisplayName = !string.IsNullOrWhiteSpace(localizedLabel) ? localizedLabel : trimedPropertyName;
-                string localizedMessage = _messageLocalizer[messageCode.StringValue()];
+                string localizedMessage = _messageLocalizer[messageCode.GetDescription()];
 
                 //add field name dynamically which being validated and update in localization resx file
                 if (labels != null && labels.Count() > 0)
@@ -61,7 +61,7 @@ namespace SmartResponse.FluentValidation
                 }
 
                 localizedMessage = labels == null || labels.Count() == 0 ? localizedMessage : string.Format(localizedMessage, labels);
-                cfg.Current.ErrorCode = messageCode.StringValue();
+                cfg.Current.ErrorCode = messageCode.GetDescription();
                 cfg.Current.SetErrorMessage(localizedMessage);
             });
 
