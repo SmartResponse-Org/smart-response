@@ -58,7 +58,8 @@ namespace SmartResponse.Localization
 
             if(!string.IsNullOrWhiteSpace(result) && arguments != null && arguments.Any())
             {
-                result = string.Format(result, arguments.ToArray().PrefSuffArray("[", "]"));
+                //result = string.Format(result, arguments.ToArray().PrefSuffArray("[", "]"));
+                result = string.Format(result, arguments.ToArray());
             }
             
             return result;

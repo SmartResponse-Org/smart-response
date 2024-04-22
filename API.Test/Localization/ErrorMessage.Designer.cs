@@ -61,7 +61,7 @@ namespace API.Test.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed : {0} Must Be Between {1} And {2}.
+        ///   Looks up a localized string similar to {0} Must Be Between {1} And {2}.
         /// </summary>
         public static string A_11 {
             get {

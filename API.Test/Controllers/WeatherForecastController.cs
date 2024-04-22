@@ -1,3 +1,4 @@
+using API.Test.Models;
 using API.Test.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -31,12 +32,12 @@ namespace API.Test.Controllers
             .ToArray();
         }
 
-        [HttpGet("GetTest")]
-        public async Task<IActionResult> GetTest(int count)
+        [HttpPost("Test")]
+        public async Task<IActionResult> GetTest(UserDto userDto)
         {
             var service = new WeatherService();
 
-            var weatherResult = service.GetWeather(count);
+            var weatherResult = await service.GetWeather(userDto);
 
             return Ok(weatherResult);
         }

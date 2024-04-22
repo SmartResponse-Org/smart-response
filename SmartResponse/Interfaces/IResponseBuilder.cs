@@ -12,6 +12,8 @@ namespace SmartResponse.Interfaces
 
         IResponse<T> Set<Error, Label>(string code, string? fieldName = null, params string[] labels);
 
+        IResponse<T> Set(List<ValidationFailure> errors);
+
         IResponse<T> Set(ErrorModel error);
 
         IResponse<T> Set(List<ErrorModel> errors);
@@ -21,6 +23,8 @@ namespace SmartResponse.Interfaces
         IResponseBuilder<T> Append(MessageCode code, string? fieldName = null, params string[] labels);
 
         IResponseBuilder<T> Append<Error, Label>(string code, string? fieldName = null, params string[] labels);
+
+        IResponseBuilder<T> Append(List<ValidationFailure> errors);
 
         IResponseBuilder<T> Append(ErrorModel error);
 

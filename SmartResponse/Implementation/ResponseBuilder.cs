@@ -48,18 +48,23 @@ namespace SmartResponse.Implementation
             _messageLocalizer = LocalizerProvider<ErrorMessage>.GetLocalizer(cultureInfo);
             _labelLocalizer = LocalizerProvider<Label>.GetLocalizer(cultureInfo);
         }
- 
-        // Set Errors.
 
+        // Set Errors.
         public IResponse<T> Set(MessageCode code, string? fieldName, params string[] labels)
         {
             return Append(code, fieldName, labels)
                 .Build();
         }
-        
+
         public IResponse<T> Set<Error, Label>(string code, string? fieldName, params string[] labels)
         {
             return Append<Error, Label>(code, fieldName, labels)
+                .Build();
+        }
+
+        public IResponse<T> Set(List<ValidationFailure> errors)
+        {
+            return Append(errors)
                 .Build();
         }
 
@@ -137,6 +142,22 @@ namespace SmartResponse.Implementation
             return this;
         }
 
+        public IResponseBuilder<T> Append(List<ValidationFailure> errors)
+        {
+            foreach (var item in errors)
+            {
+                _errors.Add(new ErrorModel
+
+                {
+                    FieldName = item.PropertyName,
+                    Code = item.ErrorCode,
+                    Message = item.ErrorMessage,
+                });
+            }
+
+            return this;
+        }
+
         public IResponseBuilder<T> Append(ErrorModel error)
         {
             _errors.Add(error);
@@ -158,57 +179,6 @@ namespace SmartResponse.Implementation
 
             return this;
         }
-
-
-        //public IResponseBuilder<T> Set(List<ValidationFailure> inputValidations = null)
-        //{
-        //    return WithErrors(inputValidations)
-        //        .Build();
-        //}
-
-        //public IResponseBuilder<T> AppendError(ValidationFailure error)
-        //{
-        //    return AppendErrors(new List<ValidationFailure> { error });
-        //}
-
-        //public IResponseBuilder<T> AppendErrors(List<ValidationFailure> errors)
-        //{
-        //    foreach (var item in errors)
-        //    {
-        //        _errors.Add(new ErrorModel
-
-        //        {
-        //            FieldName = item.PropertyName,
-        //            Code = item.ErrorCode,
-        //            Message = item.ErrorMessage,
-        //            //FieldLang = item.AttemptedValue?.ToString()
-        //        });
-        //    }
-
-        //    return Build();
-        //}
-
-        private ResponseBuilder<T> WithErrors(List<ValidationFailure> errors)
-        {
-            foreach (var item in errors)
-            {
-                item.PropertyName = item.PropertyName == "File.File" ? "File" : item.PropertyName;
-
-                string localizedFieldName = _labelLocalizer[item.PropertyName];
-
-                _errors.Add(new ErrorModel
-                {
-                    FieldName = item.PropertyName,
-                    Code = item.ErrorCode,
-                    Message = string.Format(item.ErrorMessage, !string.IsNullOrWhiteSpace(localizedFieldName)
-                            ? $"[" + _labelLocalizer[item.PropertyName] + "]"
-                            : $"[" + item.PropertyName + "]"),
-                });
-            }
-
-            return this;
-        }
-
 
         public IResponse<T> Build(T data)
         {

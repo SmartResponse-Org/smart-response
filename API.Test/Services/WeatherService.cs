@@ -1,4 +1,6 @@
-﻿using SmartResponse.Enums;
+﻿using API.Test.Models;
+using API.Test.Validation;
+using SmartResponse.Enums;
 using SmartResponse.Interfaces;
 using SmartResponse.Managers;
 using SmartResponse.Models;
@@ -11,24 +13,16 @@ namespace API.Test.Services
         {
         }
 
-        public IResponse<string> GetWeather(int count)
+        public async Task<IResponse<string>> GetWeather(UserDto userDto)
         {
-            var response = ResponseManager<string>.Create();
+            var response = ResponseManager<string>.Create(Culture.ar);
 
-            if(count < 5)
-            {
-                response.Append(MessageCode.InvalidEmail)
-                    .Append(MessageCode.InvalidFileSize)
-                    .Append(new ErrorModel
-                    {
-                        Code = "Ad",
-                        Message = "Invalid AD"
-                    });
+            var validation = await new UserValidator().ValidateAsync(userDto);
 
-                return response.Build("Wrong");
-            }
+            if (!validation.IsValid)
+                return response.Set(validation.Errors);
 
-            return response.Build();
+            return response.Build("Done");
         }
     }
 }

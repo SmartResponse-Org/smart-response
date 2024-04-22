@@ -135,23 +135,11 @@
   <data name="6000" xml:space="preserve">
     <value>فشل العملية : خطأ في البيانات المدخلة</value>
   </data>
-  <data name="6001" xml:space="preserve">
-    <value>فشل العملية : {0} هذا الحقل مطلوب </value>
-  </data>
   <data name="6002" xml:space="preserve">
     <value>فشل العملية : {0} يجب ان تكون اكبر من 0 </value>
   </data>
   <data name="6003" xml:space="preserve">
     <value>فشل العملية : خطأ في طول البيانات المدخلة</value>
-  </data>
-  <data name="6004" xml:space="preserve">
-    <value>فشل العملية : {0} يجب ان تكون  من {1}  الي{2}</value>
-  </data>
-  <data name="6005" xml:space="preserve">
-    <value>فشل العملية : {0} يجب ان تكون اكبر من {1}</value>
-  </data>
-  <data name="6006" xml:space="preserve">
-    <value>فشل العملية : {0} يجب ان تكون اقل من {1}</value>
   </data>
   <data name="6008" xml:space="preserve">
     <value>فشل العملية : العدد غير صحيح</value>
@@ -386,6 +374,18 @@
   </data>
   <data name="7062" xml:space="preserve">
     <value>فشل العمليه : يجب ان تختار فيرجين مدفوع</value>
+  </data>
+  <data name="SR-IV-6001" xml:space="preserve">
+    <value>فشل العملية : {0} هذا الحقل مطلوب </value>
+  </data>
+  <data name="SR-IV-6004" xml:space="preserve">
+    <value>{0} يجب ان يكون من {1}  الي {2}</value>
+  </data>
+  <data name="SR-IV-6005" xml:space="preserve">
+    <value>فشل العملية : {0} يجب ان تكون اكبر من {1}</value>
+  </data>
+  <data name="SR-IV-6006" xml:space="preserve">
+    <value>فشل العملية : {0} يجب ان تكون اقل من {1}</value>
   </data>
   <data name="SR-IV-6007" xml:space="preserve">
     <value>فشل العملية : الايميل غير صحيح</value>

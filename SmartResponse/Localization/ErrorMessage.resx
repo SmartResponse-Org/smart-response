@@ -135,23 +135,11 @@
   <data name="6000" xml:space="preserve">
     <value>Failed : Input Validation Error</value>
   </data>
-  <data name="6001" xml:space="preserve">
-    <value>Failed : {0} Is Required</value>
-  </data>
   <data name="6002" xml:space="preserve">
     <value>Failed:   {0} Must Be Greater Than 0</value>
   </data>
   <data name="6003" xml:space="preserve">
     <value>Length Validation Error</value>
-  </data>
-  <data name="6004" xml:space="preserve">
-    <value>Failed : {0} Must Be Between {1} And {2}</value>
-  </data>
-  <data name="6005" xml:space="preserve">
-    <value>Failed : {0} Must Be GreaterThan {1}</value>
-  </data>
-  <data name="6006" xml:space="preserve">
-    <value>Failed : {0} Must Be LessThan {1}</value>
   </data>
   <data name="6008" xml:space="preserve">
     <value>Failed :Invalid Items Count</value>
@@ -383,6 +371,18 @@
   </data>
   <data name="7061" xml:space="preserve">
     <value>Failed : Mobile belongs to other email</value>
+  </data>
+  <data name="SR-IV-6001" xml:space="preserve">
+    <value>Failed : {0} Is Required</value>
+  </data>
+  <data name="SR-IV-6004" xml:space="preserve">
+    <value>{0} Must Be Between {1} And {2}</value>
+  </data>
+  <data name="SR-IV-6005" xml:space="preserve">
+    <value>Failed : {0} Must Be GreaterThan {1}</value>
+  </data>
+  <data name="SR-IV-6006" xml:space="preserve">
+    <value>Failed : {0} Must Be LessThan {1}</value>
   </data>
   <data name="SR-IV-6007" xml:space="preserve">
     <value>Failed : Invalid [Email]</value>

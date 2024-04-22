@@ -19,18 +19,18 @@ namespace SmartResponse.Enums
         //InputValidation
         [Description("Failed : Input Validation Error")]
         InputValidationError = 6000,
-        [Description("Failed : {0} Is Required")]
+        [Description("SR-IV-6001")]
         Required = 6001,
         [Description("Failed: {0}  Must Be Greater Than Zero")]
         GreaterThanZero = 6002,
         [Description("Length Validation Error")]
         LengthValidationError = 6003,
-        /// <summary>Failed: {key} Must Be Between {min} And {max}</summary>
-        [Description("Failed : {0} Must Be Between {1} And {2}")]
+        /// <summary>{key} Must Be Between {min} And {max}</summary>
+        [Description("SR-IV-6004")]
         InbetweenValue = 6004,
-        [Description("Failed : {1} Must Be GreaterThan {0}")]
+        [Description("SR-IV-6005")]
         InvalidMinLength = 6005,
-        [Description("Failed : {1} Must Be LessThan {0}")]
+        [Description("SR-IV-6006")]
         InvalidMaxLength = 6006,
         [Description("SR-IV-6007")]
         InvalidEmail = 6007,
