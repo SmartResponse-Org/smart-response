@@ -1,4 +1,4 @@
-﻿namespace SmartResponse.Localization.Helpers
+﻿namespace SmartResponse.Helpers
 {
     public static class StringExtentions
     {
