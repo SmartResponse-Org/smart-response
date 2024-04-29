@@ -117,140 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="1000" xml:space="preserve">
-    <value>العملية تمت بنجاح</value>
+  <data name="SR-IV-6011" xml:space="preserve">
+    <value>يجب إختيار {1} من {0} علي الأقل</value>
   </data>
-  <data name="2000" xml:space="preserve">
-    <value>حصل خطأ فى السيرفر</value>
+  <data name="SR-BV-7001" xml:space="preserve">
+    <value>{0} موجود مسبقاً</value>
   </data>
-  <data name="2001" xml:space="preserve">
-    <value>فشل في الحصول على الداتا</value>
+  <data name="SR-BV-7002" xml:space="preserve">
+    <value>{0} غير موجود</value>
   </data>
-  <data name="4000" xml:space="preserve">
-    <value>فشل العمليه : لاتوجد صلاحية </value>
+  <data name="SR-BV-7003" xml:space="preserve">
+    <value>{0} غير مدعوم</value>
   </data>
-  <data name="5000" xml:space="preserve">
-    <value>حصل خطأ ما</value>
+  <data name="SR-BV-7004" xml:space="preserve">
+    <value>هذا الفعل غير مسموح</value>
   </data>
-  <data name="6000" xml:space="preserve">
-    <value>فشل العملية : خطأ في البيانات المدخلة</value>
+  <data name="SR-BV-7005" xml:space="preserve">
+    <value>{0} غير مفعل</value>
   </data>
-  <data name="6002" xml:space="preserve">
-    <value>فشل العملية : {0} يجب ان تكون اكبر من 0 </value>
-  </data>
-  <data name="6003" xml:space="preserve">
-    <value>فشل العملية : خطأ في طول البيانات المدخلة</value>
-  </data>
-  <data name="6008" xml:space="preserve">
-    <value>فشل العملية : العدد غير صحيح</value>
-  </data>
-  <data name="6009" xml:space="preserve">
-    <value>فشل العملية : اللوجو غير صحيح او غير موجود</value>
-  </data>
-  <data name="6010" xml:space="preserve">
-    <value>      فشل العملية : الـJson    غير صحيح </value>
-  </data>
-  <data name="6011" xml:space="preserve">
-    <value>فشل العملية :  لا يوجد بيانات العربية و الانجليزية في هذا الحقل</value>
-  </data>
-  <data name="6012" xml:space="preserve">
-    <value>فشل العملية :  فشل استرجاع بيانات العربية و الانجليزية في هذا الحقل</value>
-  </data>
-  <data name="6013" xml:space="preserve">
-    <value>فشل العملية :  لا يوجد بيانات الانجليزية في هذا الحقل</value>
-  </data>
-  <data name="6014" xml:space="preserve">
-    <value>فشل العملية :  لا يوجد بيانات العربية  في هذا الحقل</value>
-  </data>
-  <data name="6015" xml:space="preserve">
-    <value>فشل العملية : كلمة المرور يجب ان تحتوى رقم واحد على الاقل</value>
-  </data>
-  <data name="6016" xml:space="preserve">
-    <value>فشل العملية : كلمة المرور يجب ان تحتوى حرف  صغير واحد و حرف كبير واحد على الاقل</value>
-  </data>
-  <data name="6017" xml:space="preserve">
-    <value>فشل العملية : كلمة المرور يجب ان تحتوى رمز خاص واحد على الاقل</value>
-  </data>
-  <data name="6018" xml:space="preserve">
-    <value>فشل العملية : عنوان انترنت غير صحيح او غير امن</value>
-  </data>
-  <data name="6019" xml:space="preserve">
-    <value>فشل العملية : نوع الملف غير مدعوم</value>
-  </data>
-  <data name="6020" xml:space="preserve">
-    <value>Failed :Invalid File Content Type</value>
-  </data>
-  <data name="6021" xml:space="preserve">
-    <value>فشل العملية :يجب أن يكون حجم الملف 2 ميجابايت علي الأكثر</value>
-  </data>
-  <data name="6023" xml:space="preserve">
-    <value>فشل العملية : يجب اختيار واحد علي الأقل</value>
-  </data>
-  <data name="7000" xml:space="preserve">
-    <value>فشل العملية : بيانات تشغيل غير صحيحة</value>
-  </data>
-  <data name="7001" xml:space="preserve">
-    <value>فشل العملية : {0} موجود مسبقا</value>
-  </data>
-  <data name="7002" xml:space="preserve">
-    <value>فشل العملية : {0} غير موجود </value>
-  </data>
-  <data name="7003" xml:space="preserve">
-    <value>فشل العملية : {0}  هو الافتراضى للاخرين</value>
-  </data>
-  <data name="7004" xml:space="preserve">
-    <value>فشل العملية : توجد بيانات متعلقة</value>
-  </data>
-  <data name="7005" xml:space="preserve">
-    <value>فشل العملية : نوع الملف غير مدعوم</value>
-  </data>
-  <data name="7006" xml:space="preserve">
-    <value>فشل العملية : [الاسم] موجود مسبقا</value>
-  </data>
-  <data name="7007" xml:space="preserve">
-    <value>فشل العملية : [اسم  المستخدم] موجود مسبقا</value>
-  </data>
-  <data name="7008" xml:space="preserve">
-    <value>فشل العملية : [الايميل] موجود مسبقا</value>
-  </data>
-  <data name="7009" xml:space="preserve">
-    <value>فشل العملية : لا يمكن حذف مستخدم بصلاحية المدير</value>
-  </data>
-  <data name="7010" xml:space="preserve">
-    <value>فشل العملية :  بيانات الانجليزية للحقل {0}  موجودة مسبقا</value>
-  </data>
-  <data name="7011" xml:space="preserve">
-    <value>فشل العملية :  بيانات العربية للحقل {0}  موجودة مسبقا</value>
-  </data>
-  <data name="7012" xml:space="preserve">
-    <value>فشل العملية : [اسم المستخدم] او [الباسورد] غير صحيح</value>
-  </data>
-  <data name="7013" xml:space="preserve">
-    <value>فشل العملية : [الباسورد] غير صحيح</value>
-  </data>
-  <data name="7014" xml:space="preserve">
-    <value>فشل العملية : المستخدم غير مفعل</value>
-  </data>
-  <data name="7015" xml:space="preserve">
-    <value>فشل العملية : {0} هى نسخة مميزة</value>
-  </data>
-  <data name="7016" xml:space="preserve">
-    <value>فشل العملية :{0}  يجب ان يكون نشط في حالة الافتراضي</value>
-  </data>
-  <data name="7017" xml:space="preserve">
-    <value>فشل العملية :{0}  يكون افتراضي لا يمكن حذفة</value>
-  </data>
-  <data name="7018" xml:space="preserve">
-    <value>فشل العملية :تم تعدى الحد المسموح به لعدد النسخ النشطة</value>
-  </data>
-  <data name="7019" xml:space="preserve">
-    <value>فشل العملية لينك التحميل او الاصدار موجود مسبقا </value>
-  </data>
-  <data name="7020" xml:space="preserve">
-    <value>فشل العملية: تم تفعيل الجوال بالفعل</value>
-  </data>
-  <data name="7021" xml:space="preserve">
-    <value>فشل العملية: تم تفعيل البريد الالكتروني بالفعل</value>
+  <data name="SR-BV-7006" xml:space="preserve">
+    <value>{0} مفعل مسبقاً</value>
   </data>
   <data name="7022" xml:space="preserve">
     <value>فشل العملية: تم تخطي عدد مرات المحاوله</value>
@@ -375,19 +261,31 @@
   <data name="7062" xml:space="preserve">
     <value>فشل العمليه : يجب ان تختار فيرجين مدفوع</value>
   </data>
+  <data name="SR-IV-6000" xml:space="preserve">
+    <value>محتوي {0} غير صحيح</value>
+  </data>
   <data name="SR-IV-6001" xml:space="preserve">
-    <value>فشل العملية : {0} هذا الحقل مطلوب </value>
+    <value>{0} مطلوب</value>
+  </data>
+  <data name="SR-IV-6002" xml:space="preserve">
+    <value>طول {0} يجب أن يكون بين {1} و {2}</value>
+  </data>
+  <data name="SR-IV-6003" xml:space="preserve">
+    <value>طول {0} يجب أن يزيد عن {1}</value>
   </data>
   <data name="SR-IV-6004" xml:space="preserve">
-    <value>{0} يجب ان يكون من {1}  الي {2}</value>
-  </data>
-  <data name="SR-IV-6005" xml:space="preserve">
-    <value>فشل العملية : {0} يجب ان تكون اكبر من {1}</value>
-  </data>
-  <data name="SR-IV-6006" xml:space="preserve">
-    <value>فشل العملية : {0} يجب ان تكون اقل من {1}</value>
+    <value>طول {0} يجب أن يقل عن {1}</value>
   </data>
   <data name="SR-IV-6007" xml:space="preserve">
-    <value>فشل العملية : الايميل غير صحيح</value>
+    <value>لابد من توافر رقم واحد علي الأقل في {0}</value>
+  </data>
+  <data name="SR-IV-6008" xml:space="preserve">
+    <value>لابد من توافر حرف كبير واحد علي الأقل في {0}</value>
+  </data>
+  <data name="SR-IV-6009" xml:space="preserve">
+    <value>لابد من توافر حرف صغير واحد علي الأقل في {0}</value>
+  </data>
+  <data name="SR-IV-6010" xml:space="preserve">
+    <value>لابد من توافر حرف خاص واحد علي الأقل في {0}</value>
   </data>
 </root>

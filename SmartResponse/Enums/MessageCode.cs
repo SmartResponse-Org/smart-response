@@ -4,113 +4,75 @@ namespace SmartResponse.Enums
 {
     public enum MessageCode
     {
-        [Description("SM-G-1000")]
-        Success = 1000,
-        [Description("Internal Server Error")]
-        Failed = 2000,
-        [Description("Failed To Fetch Data")]
-        FailedToFetchData = 2001,
-        [Description("There is NoPermission to Perform this Action")]
-        UnAuthorizedAccess = 4000,
-        //Exception
-        [Description("Some Error Occurred")]
-        Exception = 5000,
+        // Input Validation
 
-        //InputValidation
-        [Description("Failed : Input Validation Error")]
-        InputValidationError = 6000,
+        /// <summary>Invalid {property}</summary>
+        [Description("SR-IV-6000")]
+        InvalidValue = 6000,
+
+        /// <summary>{property} Is Required</summary>
         [Description("SR-IV-6001")]
         Required = 6001,
-        [Description("Failed: {0}  Must Be Greater Than Zero")]
-        GreaterThanZero = 6002,
-        [Description("Length Validation Error")]
-        LengthValidationError = 6003,
-        /// <summary>{key} Must Be Between {min} And {max}</summary>
+        
+        /// <summary>{property} must be between {min} and {max}</summary>
+        [Description("SR-IV-6002")]
+        InbetweenValue = 6002,
+
+        /// <summary>{property} must be greater than {min}</summary>
+        [Description("SR-IV-6003")]
+        InvalidMinLength = 6003,
+
+        /// <summary>{property} must be less than {max}</summary>
         [Description("SR-IV-6004")]
-        InbetweenValue = 6004,
-        [Description("SR-IV-6005")]
-        InvalidMinLength = 6005,
-        [Description("SR-IV-6006")]
-        InvalidMaxLength = 6006,
+        InvalidMaxLength = 6004,
+
+        /// <summary>{property} must contain at least one digit</summary>
         [Description("SR-IV-6007")]
-        InvalidEmail = 6007,
-        [Description("Failed :Invalid Items Count")]
-        InvalidItemsCount = 6008,
-        [Description("Failed :Invalid Logo")]
-        InvalidLogo = 6009,
-        [Description("Failed :Invalid Json")]
-        InvalidJson = 6010,
-        [Description("Failed :Invalid Json Empty Value")]
-        InvalidJsonEmptyValue = 6011,
-        [Description("Failed :Failed To Deserialize")]
-        FailedToDeserialize = 6012,
-        [Description("Failed :Missing Default Value")]
-        MissingDefaultValue = 6013,
-        [Description("Failed :Missing Arabic Value")]
-        MissingArabicValue = 6014,
-        [Description("Failed :Password should contain at least 1 digit")]
-        MissingPasswordDigits = 6015,
-        [Description("Failed :Password should contain at least one alphabetic character")]
-        MissingPasswordAlphabetic = 6016,
-        [Description("Failed :Password should contain at least one special characters Like { ., $, ~ ,&}")]
-        MissingPasswordSpecialCharacters = 6017,
-        [Description("Failed :Invalid Https Url")]
-        InvalidHttpsUrl = 6018,
-        [Description("Failed :Invalid File Type")]
-        InvalidFileType = 6019,
-        [Description("Failed :Invalid File Content Type")]
-        InvalidFileContentType = 6020,
-        [Description("Failed :Invalid File Size,, Must be less than 2 MB")]
-        InvalidFileSize = 6021,
-        [Description("Failed :Invalid Rate, Must be within 1 to 5")]
-        InvalidRate = 6022,
-        [Description("Failed :You Must select one at least")]
-        InvalidItemsSelect = 6023,
+        MustContainAtLeastOneDigit = 6007,
+
+        /// <summary>{property} must contain at least one capital letter</summary>
+        [Description("SR-IV-6008")]
+        MustContainAtLeastOneCapitalLetter = 6008,
+
+        /// <summary>{property} must contain at least one small letter</summary>
+        [Description("SR-IV-6009")]
+        MustContainAtLeastOneSmallLetter = 6009,
+
+        /// <summary>{property} must contain at least one special character</summary>
+        [Description("SR-IV-6010")]
+        MustContainAtLeastOneSpecialCharacter = 6010,
+
+        /// <summary>{Key} must have at least {count} selected</summary>
+        [Description("SR-IV-6011")]
+        MustSelectAtLeastItem = 6011,
+        
         //Business Validation
-        [Description("Failed : Business Validation Error")]
-        BusinessValidationError = 7000,
-        [Description("Failed : {0} Already Exists")]
-        AlreadyExists = 7001,
-        [Description("Failed : {0} Not Found")]
+        
+        /// <summary>{key} already exist</summary>
+        [Description("SR-BV-7001")]
+        AlreadyExist = 7001,
+
+        /// <summary>{key} not found</summary>
+        [Description("SR-BV-7002")]
         NotFound = 7002,
-        [Description("Failed : {0} Is DefaultForOther")]
-        DefaultForOther = 7003,
-        [Description("There're related data to this item")]
-        RelatedDataExist = 7004,
-        [Description("File type Is Not supported")]
-        FileTypeNotSupported = 7005,
-        [Description("Failed : Name Already Exists")]
-        NameAlreadyExists = 7006,
-        [Description("Failed : UserName Already Exists")]
-        UserNameAlreadyExists = 7007,
-        [Description("Failed : Email Already Exists")]
-        EmailAlreadyExists = 7008,
-        [Description("Failed : Can't Delete Admin User ")]
-        CanNotDeleteAdminUser = 7009,
-        [Description("Failed : English {0}  Already Exists")]
-        AlreadyExistsEn = 7010,
-        [Description("Failed : Arabic {0}  Already Exists")]
-        AlreadyExistsAr = 7011,
-        [Description("Failed : Invalid UserName or Password")]
-        InvalidUserNameOrPassword = 7012,
-        [Description("Failed : Invalid Password")]
-        InvalidPassword = 7013,
-        [Description("Failed :Employee Is InActive .. Activate then try again")]
-        EmployeeIsInActive = 7014,
-        [Description("Failed : {0} Is HiglightedVersion")]
-        HiglightedVersion = 7015,
-        [Description("Failed :{0} Is InActive .. Activate then try again")]
-        InActiveEntity = 7016,
-        [Description("Failed :{0} Is Default.. Not allowed delete")]
-        DefaultEntity = 7017,
-        [Description("Failed :You Already have 3 active versions,Please deactive one")]
-        MaxActiveVersionsCountLimitExceeded = 7018,
-        [Description("Failed :DownloadUrl or ReleaseNumber is already exisit")]
-        VersionReleaseExisit = 7019,
-        [Description("Failed :Mobile already verified")]
-        MobileAlreadyVerified = 7020,
-        [Description("Failed :Email already verified")]
-        EmailAlreadyVerified = 7021,
+
+        /// <summary>{key} not supported</summary>
+        [Description("SR-BV-7003")]
+        NotSupported = 7003,
+        
+        /// <summary>This action is not allowed</summary>
+        [Description("SR-BV-7004")]
+        NotAllowedAction = 7004, 
+        
+        /// <summary>{key} not verified</summary>
+        [Description("SR-BV-7005")]
+        NotVerified = 7005,
+
+        /// <summary>{key} already verified</summary>
+        [Description("SR-BV-7006")]
+        AlreadyVerified = 7006,
+
+        // expired, not expired, exceed limit, not available, not identical, x must be greater than y and vice versa, 
         [Description("Failed :Send count exceeded")]
         SendCountExceeded = 7022,
         [Description("Failed :Phone code expired")]

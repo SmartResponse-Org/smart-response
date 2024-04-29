@@ -117,140 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="1000" xml:space="preserve">
-    <value>Success</value>
+  <data name="SR-IV-6011" xml:space="preserve">
+    <value>{0} must have at least {1} selected</value>
   </data>
-  <data name="2000" xml:space="preserve">
-    <value>Internal Server Error</value>
+  <data name="SR-BV-7001" xml:space="preserve">
+    <value>{0} already exist</value>
   </data>
-  <data name="2001" xml:space="preserve">
-    <value>Failed To Fetch Data</value>
+  <data name="SR-BV-7002" xml:space="preserve">
+    <value>{0} not found</value>
   </data>
-  <data name="4000" xml:space="preserve">
-    <value>There is NoPermission to Perform this Action</value>
+  <data name="SR-BV-7003" xml:space="preserve">
+    <value>{0} not supported</value>
   </data>
-  <data name="5000" xml:space="preserve">
-    <value>Some Error Occurred</value>
+  <data name="SR-BV-7004" xml:space="preserve">
+    <value>This action is not allowed</value>
   </data>
-  <data name="6000" xml:space="preserve">
-    <value>Failed : Input Validation Error</value>
+  <data name="SR-BV-7005" xml:space="preserve">
+    <value>{0} not verified</value>
   </data>
-  <data name="6002" xml:space="preserve">
-    <value>Failed:   {0} Must Be Greater Than 0</value>
-  </data>
-  <data name="6003" xml:space="preserve">
-    <value>Length Validation Error</value>
-  </data>
-  <data name="6008" xml:space="preserve">
-    <value>Failed :Invalid Items Count</value>
-  </data>
-  <data name="6009" xml:space="preserve">
-    <value>Failed :Invalid [Logo]</value>
-  </data>
-  <data name="6010" xml:space="preserve">
-    <value>Failed :Invalid Json</value>
-  </data>
-  <data name="6011" xml:space="preserve">
-    <value>Failed :Invalid Json Empty Value</value>
-  </data>
-  <data name="6012" xml:space="preserve">
-    <value>Failed :Failed To Deserialize</value>
-  </data>
-  <data name="6013" xml:space="preserve">
-    <value>Failed :Missing Default Value</value>
-  </data>
-  <data name="6014" xml:space="preserve">
-    <value>Failed :Missing Arabic Value</value>
-  </data>
-  <data name="6015" xml:space="preserve">
-    <value>Failed :{0} should contain at least 1 digit</value>
-  </data>
-  <data name="6016" xml:space="preserve">
-    <value>Failed :{0} should contain at least one alphabetic character</value>
-  </data>
-  <data name="6017" xml:space="preserve">
-    <value>Failed  :{0} should contain at least one special character</value>
-  </data>
-  <data name="6018" xml:space="preserve">
-    <value>Failed :Invalid Https Url</value>
-  </data>
-  <data name="6019" xml:space="preserve">
-    <value>Failed :Invalid File Type</value>
-  </data>
-  <data name="6020" xml:space="preserve">
-    <value>Failed :Invalid File Content Type</value>
-  </data>
-  <data name="6021" xml:space="preserve">
-    <value>Failed : File size should be less than 2M</value>
-  </data>
-  <data name="6023" xml:space="preserve">
-    <value>Failed :You Must select one at least</value>
-  </data>
-  <data name="7000" xml:space="preserve">
-    <value>Failed : Business Validation Error</value>
-  </data>
-  <data name="7001" xml:space="preserve">
-    <value>Failed : {0} Already Exists</value>
-  </data>
-  <data name="7002" xml:space="preserve">
-    <value>Failed : {0} Not Found</value>
-  </data>
-  <data name="7003" xml:space="preserve">
-    <value>Failed : {0} Is DefaultForOther</value>
-  </data>
-  <data name="7004" xml:space="preserve">
-    <value>There're related data to this item</value>
-  </data>
-  <data name="7005" xml:space="preserve">
-    <value>File type Is Not supported</value>
-  </data>
-  <data name="7006" xml:space="preserve">
-    <value>Failed : [Name] Already Exists</value>
-  </data>
-  <data name="7007" xml:space="preserve">
-    <value>Failed : [UserName] Already Exists</value>
-  </data>
-  <data name="7008" xml:space="preserve">
-    <value>Failed : [Email] Already Exists</value>
-  </data>
-  <data name="7009" xml:space="preserve">
-    <value>Failed : Can't Delete Admin User</value>
-  </data>
-  <data name="7010" xml:space="preserve">
-    <value>Failed : English {0}  Already Exists</value>
-  </data>
-  <data name="7011" xml:space="preserve">
-    <value>Failed : Arabic {0}  Already Exists</value>
-  </data>
-  <data name="7012" xml:space="preserve">
-    <value>Failed : Invalid [UserName] or [Password]</value>
-  </data>
-  <data name="7013" xml:space="preserve">
-    <value>Failed : Invalid [Password]</value>
-  </data>
-  <data name="7014" xml:space="preserve">
-    <value>Failed :Employee Is InActive .. Activate then try again</value>
-  </data>
-  <data name="7015" xml:space="preserve">
-    <value>Failed : {0} Is HiglightedVersion</value>
-  </data>
-  <data name="7016" xml:space="preserve">
-    <value>Failed :{0} Is InActive .. Activate then try again</value>
-  </data>
-  <data name="7017" xml:space="preserve">
-    <value>Failed :{0} Is Default.. Not allowed to be deleted</value>
-  </data>
-  <data name="7018" xml:space="preserve">
-    <value>Failed :You Already have 3 active versions,Please deactive one</value>
-  </data>
-  <data name="7019" xml:space="preserve">
-    <value>Failed :DownloadUrl or ReleaseNumber is already exisit</value>
-  </data>
-  <data name="7020" xml:space="preserve">
-    <value>Failed :Mobile already verified</value>
-  </data>
-  <data name="7021" xml:space="preserve">
-    <value>Failed :Email already verified</value>
+  <data name="SR-BV-7006" xml:space="preserve">
+    <value>{0} already verified</value>
   </data>
   <data name="7022" xml:space="preserve">
     <value>Failed :Exceed try send count</value>
@@ -372,19 +258,31 @@
   <data name="7061" xml:space="preserve">
     <value>Failed : Mobile belongs to other email</value>
   </data>
+  <data name="SR-IV-6000" xml:space="preserve">
+    <value>Invalid {0}</value>
+  </data>
   <data name="SR-IV-6001" xml:space="preserve">
-    <value>Failed : {0} Is Required</value>
+    <value>{0} Is Required</value>
+  </data>
+  <data name="SR-IV-6002" xml:space="preserve">
+    <value>{0} length must be between {1} and {2}</value>
+  </data>
+  <data name="SR-IV-6003" xml:space="preserve">
+    <value>{0} length must be greater than {1}</value>
   </data>
   <data name="SR-IV-6004" xml:space="preserve">
-    <value>{0} Must Be Between {1} And {2}</value>
-  </data>
-  <data name="SR-IV-6005" xml:space="preserve">
-    <value>Failed : {0} Must Be GreaterThan {1}</value>
-  </data>
-  <data name="SR-IV-6006" xml:space="preserve">
-    <value>Failed : {0} Must Be LessThan {1}</value>
+    <value>{0} length must be less than {1}</value>
   </data>
   <data name="SR-IV-6007" xml:space="preserve">
-    <value>Failed : Invalid [Email]</value>
+    <value>{0} must contain at least 1 digit</value>
+  </data>
+  <data name="SR-IV-6008" xml:space="preserve">
+    <value>{0} must contain at least one capital letter</value>
+  </data>
+  <data name="SR-IV-6009" xml:space="preserve">
+    <value>{0} must contain at least one small letter</value>
+  </data>
+  <data name="SR-IV-6010" xml:space="preserve">
+    <value>{0} must contain at least one special character</value>
   </data>
 </root>
