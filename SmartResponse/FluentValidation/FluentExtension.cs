@@ -8,6 +8,10 @@ namespace SmartResponse.FluentValidation
 {
     public static class FluentExtension
     {
+
+        /// <summary>
+        /// Add error using built-in error codes and labels.
+        /// </summary>
         public static IRuleBuilderOptions<T, TProperty> SmartResponse<T, TProperty>(this IRuleBuilderOptions<T, TProperty> ruleBuilder,
                                                                                     MessageCode code,
                                                                                     params object[] labels)
@@ -15,6 +19,38 @@ namespace SmartResponse.FluentValidation
             return SmartResponse<T, TProperty, ErrorMessage, Label>(ruleBuilder, code.GetDescription(), labels);
         }
 
+        /// <summary>
+        /// Add error using built-in error codes and custom labels.
+        /// </summary>
+        public static IRuleBuilderOptions<T, TProperty> SmartResponse<T, TProperty, Label>(this IRuleBuilderOptions<T, TProperty> ruleBuilder,
+                                                                            MessageCode code,
+                                                                            params object[] labels)
+        {
+            return SmartResponse<T, TProperty, ErrorMessage, Label>(ruleBuilder, code.GetDescription(), labels);
+        }
+
+        /// <summary>
+        /// Add error using custom error codes and built-in labels.
+        /// </summary>
+        public static IRuleBuilderOptions<T, TProperty> SmartResponse<T, TProperty, Error>(this IRuleBuilderOptions<T, TProperty> ruleBuilder,
+                                                                            string code,
+                                                                            params object[] labels)
+        {
+            return SmartResponse<T, TProperty, Error, Label>(ruleBuilder, code, labels);
+        }
+
+        /// <summary>
+        /// Add error using custom error codes without labels.
+        /// </summary>
+        public static IRuleBuilderOptions<T, TProperty> SmartResponse<T, TProperty, Error>(this IRuleBuilderOptions<T, TProperty> ruleBuilder,
+                                                                            string code)
+        {
+            return SmartResponse<T, TProperty, Error, Label>(ruleBuilder, code);
+        }
+
+        /// <summary>
+        /// Add error using custom error codes and custom labels.
+        /// </summary>
         public static IRuleBuilderOptions<T, TProperty> SmartResponse<T, TProperty, Error, Label>(this IRuleBuilderOptions<T, TProperty> ruleBuilder,
                                                                                                   string code,
                                                                                                   params object[] labels)

@@ -56,6 +56,24 @@ namespace SmartResponse.Implementation
                 .Build();
         }
 
+        public IResponse<T> Set<Label>(MessageCode code, string? fieldName, params string[] labels)
+        {
+            return Append<Label>(code, fieldName, labels)
+                .Build();
+        }
+
+        public IResponse<T> Set<Error>(string code, string? fieldName, params string[] labels)
+        {
+            return Append<Error>(code, fieldName, labels)
+                .Build();   
+        }
+
+        public IResponse<T> Set<Error>(string code, string? fieldName)
+        {
+            return Append<Error>(code, fieldName)
+                .Build();
+        }
+
         public IResponse<T> Set<Error, Label>(string code, string? fieldName, params string[] labels)
         {
             return Append<Error, Label>(code, fieldName, labels)
@@ -113,12 +131,39 @@ namespace SmartResponse.Implementation
             return this;
         }
 
-        public IResponseBuilder<T> Append<Error, Label>(string code, string? fieldName, params string[] labels)
+        public IResponseBuilder<T> Append<Label>(MessageCode code, string? fieldName, params string[] labels)
         {
-            var _messageLocalizer = LocalizerProvider<Error>.GetLocalizer();
-            var _labelLocalizer = LocalizerProvider<Label>.GetLocalizer();
+            var labelLocalizer = LocalizerProvider<Label>.GetLocalizer();
 
-            string msg = _messageLocalizer[code];
+            string msg = _messageLocalizer[code.GetDescription()];
+
+            if (labels.Any())
+            {
+                var localizedLabels = new List<string>();
+
+                foreach (var label in labels)
+                {
+                    localizedLabels.Add(labelLocalizer[label]);
+                }
+
+                msg = _messageLocalizer[code.GetDescription(), localizedLabels.ToArray()];
+            }
+
+            _errors.Add(new ErrorModel
+            {
+                FieldName = fieldName,
+                Code = code.GetDescription(),
+                Message = msg
+            });
+
+            return this;
+        }
+
+        public IResponseBuilder<T> Append<Error>(string code, string? fieldName, params string[] labels)
+        {
+            var messageLocalizer = LocalizerProvider<Error>.GetLocalizer();
+
+            string msg = messageLocalizer[code];
 
             if (labels.Any())
             {
@@ -129,7 +174,52 @@ namespace SmartResponse.Implementation
                     localizedLabels.Add(_labelLocalizer[label]);
                 }
 
-                msg = _messageLocalizer[code, localizedLabels.ToArray()];
+                msg = messageLocalizer[code, localizedLabels.ToArray()];
+            }
+
+            _errors.Add(new ErrorModel
+            {
+                FieldName = fieldName,
+                Code = code,
+                Message = msg
+            });
+
+            return this;
+        }
+
+        public IResponseBuilder<T> Append<Error>(string code, string? fieldName)
+        {
+            var messageLocalizer = LocalizerProvider<Error>.GetLocalizer();
+
+            string msg = messageLocalizer[code];
+
+            _errors.Add(new ErrorModel
+            {
+                FieldName = fieldName,
+                Code = code,
+                Message = msg
+            });
+
+            return this;
+        }
+
+        public IResponseBuilder<T> Append<Error, Label>(string code, string? fieldName, params string[] labels)
+        {
+            var messageLocalizer = LocalizerProvider<Error>.GetLocalizer();
+            var labelLocalizer = LocalizerProvider<Label>.GetLocalizer();
+
+            string msg = messageLocalizer[code];
+
+            if (labels.Any())
+            {
+                var localizedLabels = new List<string>();
+
+                foreach (var label in labels)
+                {
+                    localizedLabels.Add(labelLocalizer[label]);
+                }
+
+                msg = messageLocalizer[code, localizedLabels.ToArray()];
             }
 
             _errors.Add(new ErrorModel

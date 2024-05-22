@@ -8,8 +8,29 @@ namespace SmartResponse.Interfaces
 {
     public interface IResponseBuilder<T> // where T : class
     {
+        /// <summary>
+        /// Set error using built-in error codes and labels.
+        /// </summary>
         IResponse<T> Set(MessageCode code, string? fieldName = null, params string[] labels);
 
+        /// <summary>
+        /// Set error using built-in error codes and custom labels.
+        /// </summary>
+        IResponse<T> Set<Label>(MessageCode code, string? fieldName, params string[] labels);
+
+        /// <summary>
+        /// Set error using custom error codes and built-in labels.
+        /// </summary>
+        IResponse<T> Set<Error>(string code, string? fieldName, params string[] labels);
+
+        /// <summary>
+        /// Set error using custom error codes without labels.
+        /// </summary>
+        IResponse<T> Set<Error>(string code, string? fieldName);
+
+        /// <summary>
+        /// Set error using custom error codes and custom labels.
+        /// </summary>
         IResponse<T> Set<Error, Label>(string code, string? fieldName = null, params string[] labels);
 
         IResponse<T> Set(List<ValidationFailure> errors);
@@ -20,8 +41,29 @@ namespace SmartResponse.Interfaces
         
         IResponse<T> Set(Exception ex);
 
+        /// <summary>
+        /// Append error using built-in error codes and labels.
+        /// </summary>
         IResponseBuilder<T> Append(MessageCode code, string? fieldName = null, params string[] labels);
 
+        /// <summary>
+        /// Append error using built-in error codes and custom labels.
+        /// </summary>
+        IResponseBuilder<T> Append<Label>(MessageCode code, string? fieldName, params string[] labels);
+
+        /// <summary>
+        /// Append error using custom error codes and built-in labels.
+        /// </summary>
+        IResponseBuilder<T> Append<Error>(string code, string? fieldName, params string[] labels);
+
+        /// <summary>
+        /// Append error using custom error codes without labels.
+        /// </summary>
+        IResponseBuilder<T> Append<Error>(string code, string? fieldName);
+
+        /// <summary>
+        /// Append error using custom error codes and custom labels.
+        /// </summary>
         IResponseBuilder<T> Append<Error, Label>(string code, string? fieldName = null, params string[] labels);
 
         IResponseBuilder<T> Append(List<ValidationFailure> errors);
