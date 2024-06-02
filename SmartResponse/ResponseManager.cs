@@ -2,7 +2,7 @@
 using SmartResponse.Implementation;
 using SmartResponse.Interfaces;
 
-namespace SmartResponse.Managers
+namespace SmartResponse
 {
     public class ResponseManager<T>
     {
@@ -10,7 +10,7 @@ namespace SmartResponse.Managers
         {
             return new ResponseBuilder<T>(new Response<T>(), culture);
         }
-        
+
         public static IResponseBuilder<T> Create(string culture)
         {
             return new ResponseBuilder<T>(new Response<T>(), culture);

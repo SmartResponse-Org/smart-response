@@ -11,10 +11,10 @@ namespace API.Test.Validation
         public UserValidator()
         {
             RuleFor(u => u.Username)
-                .Length(10, 50).SmartResponse<UserDto, string, ErrorMessage, Label>("A-11", "10", "50");
+                .NotNull().SmartResponse(MessageCode.Required);
 
-            //RuleFor(u => u.File)
-            //    .NotNull().SmartResponse(MessageCode.Required);
+            RuleFor(u => u.Username)
+                .Length(10, 50).SmartResponse(MessageCode.InbetweenValue, "10", "50");
         }
     }
 }

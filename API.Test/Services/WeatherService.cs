@@ -1,8 +1,8 @@
 ﻿using API.Test.Models;
 using API.Test.Validation;
+using SmartResponse;
 using SmartResponse.Enums;
 using SmartResponse.Interfaces;
-using SmartResponse.Managers;
 using SmartResponse.Models;
 
 namespace API.Test.Services
@@ -13,16 +13,15 @@ namespace API.Test.Services
         {
         }
 
-        public async Task<IResponse<string>> GetWeather(UserDto userDto)
+        public async Task<IResponse<bool>> GetWeather(UserDto userDto)
         {
-            var response = ResponseManager<string>.Create(Culture.ar);
+            var response = ResponseManager<bool>.Create();
 
-            var validation = await new UserValidator().ValidateAsync(userDto);
+            response.Append(MessageCode.InbetweenValue, "Age", "18", "25");
 
-            if (!validation.IsValid)
-                return response.Set(validation.Errors);
+            response.Append(MessageCode.InvalidMinLength, "Name", "Name", "10");
 
-            return response.Build("Done");
+            return response.Build();
         }
     }
 }
