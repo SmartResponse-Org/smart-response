@@ -7,7 +7,7 @@ A .NET library for building custom API response.
 
 ## Installation
 
-Use the package manager [Nuget](https://pip.pypa.io/en/stable/) to install Smart Response.
+Use the package manager [Nuget](https://www.nuget.org/packages/SmartResponse) to install Smart Response.
 
 ```PMC
 NuGet\Install-Package SmartResponse
