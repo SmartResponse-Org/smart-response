@@ -1,0 +1,5 @@
+site_name: Smart Response
+nav:
+  - GETTING STARTED: index.md
+  - FLUENT VALIDATION: fluentvalidation.md
+theme: readthedocs
