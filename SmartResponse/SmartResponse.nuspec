@@ -2,8 +2,8 @@
 <package >
 	<metadata>
 		<id>SmartResponse</id>
-		<version>1.0.3-alpha</version>
-		<releaseNotes>Set source links and license.</releaseNotes>
+		<version>1.0.5-alpha</version>
+		<releaseNotes>Fix localization culture.</releaseNotes>
 		<title>Smart Response</title>
 		<authors>Sully</authors>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>

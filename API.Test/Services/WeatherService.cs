@@ -15,9 +15,9 @@ namespace API.Test.Services
 
         public async Task<IResponse<bool>> GetWeather(UserDto userDto)
         {
-            var response = ResponseManager<bool>.Create();
+            var response = ResponseManager<bool>.Create(Culture.ar);
 
-            response.Append(MessageCode.InbetweenValue, "Age", "18", "25");
+            response.Append(MessageCode.InbetweenValue, nameof(userDto.Username), "Age", "18", "25");
 
             response.Append(MessageCode.InvalidMinLength, "Name", "Name", "10");
 
