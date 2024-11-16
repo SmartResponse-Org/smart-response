@@ -1,6 +1,8 @@
 ﻿using SmartResponse.Enums;
 using SmartResponse.Implementation;
 using SmartResponse.Interfaces;
+using SmartResponse.Localization;
+using System.Globalization;
 
 namespace SmartResponse
 {
@@ -8,12 +10,28 @@ namespace SmartResponse
     {
         public static IResponseBuilder<T> Create(Culture culture = Culture.en)
         {
-            return new ResponseBuilder<T>(new Response<T>(), culture);
+            var cultureInfo = new CultureInfo("en");
+
+            switch (culture)
+            {
+                case Culture.ar:
+                    cultureInfo = new CultureInfo("ar");
+                    break;
+            }
+
+            return CreateHelper(cultureInfo);
         }
 
         public static IResponseBuilder<T> Create(string culture)
         {
-            return new ResponseBuilder<T>(new Response<T>(), culture);
+            return CreateHelper(new CultureInfo(culture));
+        }
+
+        private static IResponseBuilder<T> CreateHelper(CultureInfo cultureInfo)
+        {
+            return new ResponseBuilder<T>(new Response<T>(),
+                                          new CustomStringLocalizer<ErrorMessage>(cultureInfo),
+                                          new CustomStringLocalizer<Label>(cultureInfo));
         }
     }
 }

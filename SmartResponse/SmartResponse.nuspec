@@ -2,7 +2,7 @@
 <package >
 	<metadata>
 		<id>SmartResponse</id>
-		<version>1.0.5-alpha</version>
+		<version>1.0.6-alpha</version>
 		<releaseNotes>Fix localization culture.</releaseNotes>
 		<title>Smart Response</title>
 		<authors>Sully</authors>

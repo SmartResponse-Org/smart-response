@@ -20,33 +20,14 @@ namespace SmartResponse.Implementation
         private ICustomStringLocalizer<ErrorMessage> _messageLocalizer;
         private ICustomStringLocalizer<Label> _labelLocalizer;
 
-        public ResponseBuilder(IResponse<T> response, Culture culture)
+        public ResponseBuilder(IResponse<T> response,
+                               ICustomStringLocalizer<ErrorMessage> messageLocalizer,
+                               ICustomStringLocalizer<Label> labelLocalizer)
         {
             _response = response;
             _errors = new List<ErrorModel>();
-
-            var cultureInfo = new CultureInfo("en");
-
-            switch (culture)
-            {
-                case Culture.ar:
-                    cultureInfo = new CultureInfo("ar");
-                    break;
-            }
-
-            _messageLocalizer = LocalizerProvider<ErrorMessage>.GetLocalizer(cultureInfo);
-            _labelLocalizer = LocalizerProvider<Label>.GetLocalizer(cultureInfo);
-        }
-
-        public ResponseBuilder(IResponse<T> response, string culture)
-        {
-            _response = response;
-            _errors = new List<ErrorModel>();
-
-            var cultureInfo = new CultureInfo(culture);
-
-            _messageLocalizer = LocalizerProvider<ErrorMessage>.GetLocalizer(cultureInfo);
-            _labelLocalizer = LocalizerProvider<Label>.GetLocalizer(cultureInfo);
+            _messageLocalizer = messageLocalizer;
+            _labelLocalizer = labelLocalizer;
         }
 
         // Set Errors.
